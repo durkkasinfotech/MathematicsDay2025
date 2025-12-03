@@ -557,10 +557,10 @@ const RegistrationForm = () => {
                 </div>
               </div>
 
-              {/* Competition Course */}
+              {/* Competition Category */}
               <div className="md:col-span-2">
                 <label htmlFor="competitionCourse" className="label-field text-sm sm:text-base">
-                  Select Competition Course <span className="text-red-500">*</span>
+                  Select Competition Category <span className="text-red-500">*</span>
                 </label>
                 <div className="relative group">
                   <i className="fa fa-trophy absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-primary-500 z-10 pointer-events-none text-sm sm:text-base transition-colors"></i>
@@ -572,7 +572,7 @@ const RegistrationForm = () => {
                     className="input-field pl-10 sm:pl-12 pr-10 sm:pr-12 text-sm sm:text-base py-2.5 sm:py-3 appearance-none cursor-pointer"
                     required
                   >
-                    <option value="">Select a competition course</option>
+                    <option value="">Select a competition category</option>
                     {competitionCourses.map((course) => (
                       <option key={course} value={course}>
                         {course}
@@ -665,6 +665,11 @@ const RegistrationForm = () => {
               <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed text-center sm:text-left">
                 Create small projects showing how Math + AI can solve real-life problems.
               </p>
+              <div className="mb-3 sm:mb-4">
+                <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-xs font-semibold rounded-full">
+                  Example Categories: Education, Construction, Scheduling, Weather
+                </span>
+              </div>
               <div className="space-y-2 sm:space-y-2.5">
                 <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
                   <i className="fa fa-check-circle text-primary-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
@@ -694,6 +699,11 @@ const RegistrationForm = () => {
               <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed text-center sm:text-left">
                 Solve real-life industry problems using Math + AI.
               </p>
+              <div className="mb-3 sm:mb-4">
+                <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
+                  Example Categories: Logistics, Investment, Energy, Disaster Management
+                </span>
+              </div>
               <div className="space-y-2 sm:space-y-2.5">
                 <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
                   <i className="fa fa-check-circle text-green-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
@@ -723,6 +733,11 @@ const RegistrationForm = () => {
               <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed text-center sm:text-left">
                 Explore how Math + AI are used in finance.
               </p>
+              <div className="mb-3 sm:mb-4">
+                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
+                  Example Categories: Options Trading, Price Prediction, Risk Analysis
+                </span>
+              </div>
               <div className="space-y-2 sm:space-y-2.5">
                 <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
                   <i className="fa fa-check-circle text-purple-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
