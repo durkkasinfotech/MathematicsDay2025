@@ -1,0 +1,40 @@
+================================================================================
+MATHEMATICS DAY 2025 - SUPABASE SETUP (SIMPLE STEPS)
+================================================================================
+
+STEP 1: Open Supabase SQL Editor
+---------------------------------
+1. Go to: https://app.supabase.com
+2. Login and select your project
+3. Click "SQL Editor" (left sidebar)
+4. Click "New query"
+
+STEP 2: Copy & Paste SQL
+--------------------------
+1. Open file: SUPABASE_SETUP.sql
+2. Select ALL content (Ctrl+A)
+3. Copy (Ctrl+C)
+4. Paste into Supabase SQL Editor (Ctrl+V)
+5. Click "Run" button (or press Ctrl+Enter)
+
+STEP 3: Wait for Success
+-------------------------
+You should see: "Success. No rows returned"
+
+STEP 4: Verify
+--------------
+1. Go to: Authentication → Policies
+2. Check that "Allow public inserts" policy exists
+3. It should allow: anon, authenticated, public
+
+STEP 5: Test
+------------
+1. Go to your registration form
+2. Fill and submit
+3. Check Supabase → Table Editor → math_lead_registrations
+4. Your data should be there! ✅
+
+================================================================================
+THAT'S IT! Your database is ready to store registrations.
+================================================================================
+
