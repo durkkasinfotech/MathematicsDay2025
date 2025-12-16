@@ -164,7 +164,7 @@ const Linguistic2025Page = () => {
                       name="studentName"
                       value={formData.studentName}
                       onChange={handleChange}
-                      className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                      className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                     />
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2">
