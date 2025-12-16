@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { supabase } from '../utils/supabaseClient';
 
 const NxtZenWinter2025Page = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ const NxtZenWinter2025Page = () => {
     city: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,33 +22,93 @@ const NxtZenWinter2025Page = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('');
+    setSubmitStatus({ type: '', message: '' });
 
-    // Very basic required-field check
+    // Basic required-field check
     if (!formData.studentName || !formData.grade || !formData.parentName || !formData.contactNumber) {
-      setSubmitStatus('Please fill in all required fields (marked with *).');
+      setSubmitStatus({ type: 'error', message: 'Please fill in all required fields (marked with *).' });
       setIsSubmitting(false);
       return;
     }
 
-    // Temporary frontend-only behavior
-    console.log('NxtZen Winter 2025 registration (temporary, frontend-only):', formData);
-    setSubmitStatus('Thank you! Your details have been recorded. This is a temporary form – final confirmation will be taken later.');
-    setIsSubmitting(false);
+    // Simple mobile validation: at least 10 digits
+    const digitsOnly = formData.contactNumber.replace(/\D/g, '');
+    if (digitsOnly.length < 10) {
+      setSubmitStatus({ type: 'error', message: 'Please enter a valid contact number (at least 10 digits).' });
+      setIsSubmitting(false);
+      return;
+    }
 
-    // Optionally reset form
-    setFormData({
-      studentName: '',
-      grade: '',
-      schoolName: '',
-      parentName: '',
-      contactNumber: '',
-      email: '',
-      city: '',
-    });
+    // Simple email validation if provided
+    if (formData.email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        setSubmitStatus({ type: 'error', message: 'Please enter a valid email address.' });
+        setIsSubmitting(false);
+        return;
+      }
+    }
+
+    try {
+      if (!supabase) {
+        console.warn('Supabase client is not configured.');
+        setSubmitStatus({
+          type: 'error',
+          message: 'Backend is not configured yet. Please contact the administrator.',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      const { error } = await supabase.from('nxtzenwinter2025_registrations').insert([
+        {
+          student_name: formData.studentName.trim(),
+          grade: formData.grade,
+          school_name: formData.schoolName || null,
+          parent_name: formData.parentName.trim(),
+          contact_number: formData.contactNumber.trim(),
+          email: formData.email ? formData.email.trim() : null,
+          city: formData.city || null,
+        },
+      ]);
+
+      if (error) {
+        console.error('Error inserting NxtZen Winter registration:', error);
+        setSubmitStatus({
+          type: 'error',
+          message: 'Unable to save registration right now. Please try again later.',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      setSubmitStatus({
+        type: 'success',
+        message: 'Thank you! Your registration has been saved successfully.',
+      });
+
+      // Reset form
+      setFormData({
+        studentName: '',
+        grade: '',
+        schoolName: '',
+        parentName: '',
+        contactNumber: '',
+        email: '',
+        city: '',
+      });
+    } catch (err) {
+      console.error('Unexpected error while saving NxtZen Winter registration:', err);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Unexpected error occurred. Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -125,7 +186,7 @@ const NxtZenWinter2025Page = () => {
                         name="grade"
                         value={formData.grade}
                         onChange={handleChange}
-                        className="w-full rounded-lg border-2 border-slate-200 px-4 py-3 text-base font-medium shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 appearance-none bg-white cursor-pointer hover:border-slate-300"
+                        className="w-full rounded-lg border-2 border-slate-200 px-4 py-3 text-base font-medium text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 appearance-none bg-white cursor-pointer hover:border-slate-300"
                       >
                         <option value="" className="text-slate-500">Select grade</option>
                         <option value="1-2" className="text-slate-900">Grades 1 – 2</option>
@@ -147,7 +208,7 @@ const NxtZenWinter2025Page = () => {
                         name="schoolName"
                         value={formData.schoolName}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                       />
                     </div>
                   </div>
@@ -173,7 +234,15 @@ const NxtZenWinter2025Page = () => {
                         name="contactNumber"
                         value={formData.contactNumber}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        maxLength="10"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        onKeyPress={(e) => {
+                          if (!/[0-9]/.test(e.key)) {
+                            e.preventDefault();
+                          }
+                        }}
                       />
                     </div>
                   </div>
@@ -185,7 +254,9 @@ const NxtZenWinter2025Page = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        inputMode="email"
+                        placeholder="your.email@example.com"
                       />
                     </div>
                     <div>
@@ -195,14 +266,20 @@ const NxtZenWinter2025Page = () => {
                         name="city"
                         value={formData.city}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                       />
                     </div>
                   </div>
 
-                  {submitStatus && (
-                    <p className="text-xs text-sky-700 bg-sky-50 border border-sky-100 rounded-md px-3 py-2">
-                      {submitStatus}
+                  {submitStatus.message && (
+                    <p
+                      className={`text-xs rounded-md px-3 py-2 border ${
+                        submitStatus.type === 'success'
+                          ? 'text-emerald-700 bg-emerald-50 border-emerald-200'
+                          : 'text-red-700 bg-red-50 border-red-200'
+                      }`}
+                    >
+                      {submitStatus.message}
                     </p>
                   )}
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { supabase } from '../utils/supabaseClient';
 
 const Linguistic2025Page = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ const Linguistic2025Page = () => {
     city: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,36 +22,90 @@ const Linguistic2025Page = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('');
+    setSubmitStatus({ type: '', message: '' });
 
+    // Basic required field validation
     if (!formData.studentName || !formData.grade || !formData.parentName || !formData.contactNumber) {
-      setSubmitStatus('Please fill in all required fields (marked with *).');
+      setSubmitStatus({ type: 'error', message: 'Please fill in all required fields (marked with *).' });
       setIsSubmitting(false);
       return;
     }
 
-    console.log('Linguistic Tornado 2025 registration (temporary, frontend-only):', formData);
-    setSubmitStatus('Thank you! Your details have been recorded. This is a temporary form – final confirmation will be taken later.');
-    setIsSubmitting(false);
+    // Optional: very simple phone check (10 digits when you use Indian numbers)
+    const digitsOnly = formData.contactNumber.replace(/\D/g, '');
+    if (digitsOnly.length < 10) {
+      setSubmitStatus({ type: 'error', message: 'Please enter a valid contact number.' });
+      setIsSubmitting(false);
+      return;
+    }
 
-    setFormData({
-      studentName: '',
-      grade: '',
-      schoolName: '',
-      parentName: '',
-      contactNumber: '',
-      email: '',
-      city: '',
-    });
+    // Insert into Supabase table
+    try {
+      if (!supabase) {
+        console.warn('Supabase client is not configured.');
+        setSubmitStatus({
+          type: 'error',
+          message: 'Backend is not configured yet. Please contact the administrator.',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      const { error } = await supabase.from('linguistic_tornado_registrations').insert([
+        {
+          student_name: formData.studentName.trim(),
+          grade: formData.grade,
+          school_name: formData.schoolName || null,
+          parent_name: formData.parentName.trim(),
+          contact_number: formData.contactNumber.trim(),
+          email: formData.email ? formData.email.trim() : null,
+          city: formData.city || null,
+        },
+      ]);
+
+      if (error) {
+        console.error('Error inserting Linguistic registration:', error);
+        setSubmitStatus({
+          type: 'error',
+          message: 'Unable to save registration right now. Please try again later.',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      setSubmitStatus({
+        type: 'success',
+        message: 'Thank you! Your registration has been saved successfully.',
+      });
+
+      // Reset form
+      setFormData({
+        studentName: '',
+        grade: '',
+        schoolName: '',
+        parentName: '',
+        contactNumber: '',
+        email: '',
+        city: '',
+      });
+    } catch (err) {
+      console.error('Unexpected error while saving Linguistic registration:', err);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Unexpected error occurred. Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="relative bg-slate-50">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white">
+      <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white">
         <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_top_right,_#1e40af33,_transparent_70%)]" />
         <div className="absolute inset-0 opacity-20 bg-[linear-gradient(135deg,_transparent_30%,_#3b82f611_50%,_transparent_70%)]" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-5" />
@@ -121,7 +176,7 @@ const Linguistic2025Page = () => {
                         name="grade"
                         value={formData.grade}
                         onChange={handleChange}
-                        className="w-full rounded-lg border-2 border-slate-200 px-4 py-3 text-base font-medium shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 appearance-none bg-white cursor-pointer hover:border-slate-300"
+                        className="w-full rounded-lg border-2 border-slate-200 px-4 py-3 text-base font-medium text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 appearance-none bg-white cursor-pointer hover:border-slate-300"
                       >
                         <option value="" className="text-slate-500">Select grade</option>
                         <option value="1">Grade 1</option>
@@ -143,7 +198,7 @@ const Linguistic2025Page = () => {
                         name="schoolName"
                         value={formData.schoolName}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                       />
                     </div>
                   </div>
@@ -157,7 +212,7 @@ const Linguistic2025Page = () => {
                         name="parentName"
                         value={formData.parentName}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                       />
                     </div>
                     <div>
@@ -169,7 +224,15 @@ const Linguistic2025Page = () => {
                         name="contactNumber"
                         value={formData.contactNumber}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        maxLength="10"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        onKeyPress={(e) => {
+                          if (!/[0-9]/.test(e.key)) {
+                            e.preventDefault();
+                          }
+                        }}
                       />
                     </div>
                   </div>
@@ -181,7 +244,9 @@ const Linguistic2025Page = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        inputMode="email"
+                        placeholder="your.email@example.com"
                       />
                     </div>
                     <div>
@@ -191,14 +256,20 @@ const Linguistic2025Page = () => {
                         name="city"
                         value={formData.city}
                         onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                       />
                     </div>
                   </div>
 
                   {submitStatus && (
-                    <p className="text-xs text-sky-700 bg-sky-50 border border-sky-100 rounded-md px-3 py-2">
-                      {submitStatus}
+                    <p
+                      className={`text-xs rounded-md px-3 py-2 border ${
+                        submitStatus.type === 'success'
+                          ? 'text-emerald-700 bg-emerald-50 border-emerald-200'
+                          : 'text-red-700 bg-red-50 border-red-200'
+                      }`}
+                    >
+                      {submitStatus.message}
                     </p>
                   )}
 
