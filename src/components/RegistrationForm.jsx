@@ -642,32 +642,6 @@ const RegistrationForm = () => {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-              {/* Area of Interest */}
-              <div className="md:col-span-2">
-                <label htmlFor="areaOfInterest" className="label-field text-sm sm:text-base">
-                  Which area are you interested in? <span className="text-red-500">*</span>
-                </label>
-                <div className="relative group">
-                  <i className="fa fa-star absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-primary-500 z-10 pointer-events-none text-sm sm:text-base transition-colors"></i>
-                  <select
-                    id="areaOfInterest"
-                    name="areaOfInterest"
-                    value={formData.areaOfInterest}
-                    onChange={handleChange}
-                    className="input-field pl-10 sm:pl-12 pr-10 sm:pr-12 text-sm sm:text-base py-2.5 sm:py-3 appearance-none cursor-pointer"
-                    required
-                  >
-                    <option value="">Select an area of interest</option>
-                    {areasOfInterest.map((area) => (
-                      <option key={area} value={area}>
-                        {area}
-                      </option>
-                    ))}
-                  </select>
-                  <i className="fa fa-chevron-down absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none z-10 text-sm"></i>
-                </div>
-              </div>
-
               {/* Competition Category */}
               <div className="md:col-span-2">
                 <label htmlFor="competitionCourse" className="label-field text-sm sm:text-base">
@@ -687,6 +661,32 @@ const RegistrationForm = () => {
                     {competitionCourses.map((course) => (
                       <option key={course} value={course}>
                         {course}
+                      </option>
+                    ))}
+                  </select>
+                  <i className="fa fa-chevron-down absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none z-10 text-sm"></i>
+                </div>
+              </div>
+
+              {/* Area of Interest */}
+              <div className="md:col-span-2">
+                <label htmlFor="areaOfInterest" className="label-field text-sm sm:text-base">
+                  Which area are you interested in? <span className="text-red-500">*</span>
+                </label>
+                <div className="relative group">
+                  <i className="fa fa-star absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-primary-500 z-10 pointer-events-none text-sm sm:text-base transition-colors"></i>
+                  <select
+                    id="areaOfInterest"
+                    name="areaOfInterest"
+                    value={formData.areaOfInterest}
+                    onChange={handleChange}
+                    className="input-field pl-10 sm:pl-12 pr-10 sm:pr-12 text-sm sm:text-base py-2.5 sm:py-3 appearance-none cursor-pointer"
+                    required
+                  >
+                    <option value="">Select an area of interest</option>
+                    {areasOfInterest.map((area) => (
+                      <option key={area} value={area}>
+                        {area}
                       </option>
                     ))}
                   </select>
