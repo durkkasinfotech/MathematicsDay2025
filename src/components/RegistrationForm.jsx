@@ -299,6 +299,117 @@ const RegistrationForm = () => {
           </div>
         )}
 
+        {/* Competition Categories */}
+        <div className="card-premium p-5 sm:p-6 md:p-8 mb-8 sm:mb-12">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 px-2">Competition Categories</h2>
+            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-primary-500 to-indigo-500 mx-auto rounded-full"></div>
+            <p className="text-sm sm:text-base text-gray-600 mt-3 sm:mt-4 max-w-2xl mx-auto px-2 leading-relaxed">
+              Explore innovative projects that combine Mathematics and Artificial Intelligence to solve real-world challenges
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
+            {/* Category 1 */}
+            <div className="card-hover p-5 sm:p-6 bg-gradient-to-br from-primary-50 to-blue-50 border-2 border-primary-200 rounded-xl overflow-hidden">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg mx-auto sm:mx-0">
+                <i className="fa fa-lightbulb text-white text-xl sm:text-2xl"></i>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 text-center sm:text-left">Math + AI = Innovation</h3>
+              <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed text-center sm:text-left">
+                Create small projects showing how Math + AI can solve real-life problems.
+              </p>
+              <div className="mb-3 sm:mb-4">
+                <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-xs font-semibold rounded-full">
+                  Example Categories: Education, Construction, Scheduling, Weather
+                </span>
+              </div>
+              <div className="space-y-2 sm:space-y-2.5">
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-primary-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Predict exam marks using simple AI</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-primary-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Estimate material needed for construction</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-primary-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Create an AI timetable maker</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-primary-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Predict weather using maths + AI</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Category 2 */}
+            <div className="card-hover p-5 sm:p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl overflow-hidden">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg mx-auto sm:mx-0">
+                <i className="fa fa-briefcase text-white text-xl sm:text-2xl"></i>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 text-center sm:text-left">Applied Maths + AI Case Challenges</h3>
+              <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed text-center sm:text-left">
+                Solve real-life industry problems using Math + AI.
+              </p>
+              <div className="mb-3 sm:mb-4">
+                <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
+                  Example Categories: Logistics, Investment, Energy, Disaster Management
+                </span>
+              </div>
+              <div className="space-y-2 sm:space-y-2.5">
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-green-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Reduce transport cost using maths + prediction models</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-green-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Choose the best investment mix using maths + AI tools</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-green-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Predict energy usage using simple AI</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-green-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Estimate flood risk using probability + ML</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Category 3 */}
+            <div className="card-hover p-5 sm:p-6 bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-xl overflow-hidden">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg mx-auto sm:mx-0">
+                <i className="fa fa-chart-line text-white text-xl sm:text-2xl"></i>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 text-center sm:text-left">AI in Finance - Simulation Challenge</h3>
+              <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed text-center sm:text-left">
+                Explore how Math + AI are used in finance.
+              </p>
+              <div className="mb-3 sm:mb-4">
+                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
+                  Example Categories: Options Trading, Price Prediction, Risk Analysis
+                </span>
+              </div>
+              <div className="space-y-2 sm:space-y-2.5">
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-purple-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Calculate option prices using formulas + simple AI</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-purple-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Predict future prices using time-series models</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
+                  <i className="fa fa-check-circle text-purple-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
+                  <span className="leading-relaxed">Check portfolio risk using simulations + AI scoring</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Registration Form */}
         <div className="card-premium mb-8 sm:mb-12 overflow-hidden">
           {/* Form Header with Gradient */}
@@ -642,117 +753,6 @@ const RegistrationForm = () => {
               </button>
             </div>
           </form>
-          </div>
-        </div>
-
-        {/* Competition Categories */}
-        <div className="card-premium p-5 sm:p-6 md:p-8 mb-8 sm:mb-12">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 px-2">Competition Categories</h2>
-            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-primary-500 to-indigo-500 mx-auto rounded-full"></div>
-            <p className="text-sm sm:text-base text-gray-600 mt-3 sm:mt-4 max-w-2xl mx-auto px-2 leading-relaxed">
-              Explore innovative projects that combine Mathematics and Artificial Intelligence to solve real-world challenges
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
-            {/* Category 1 */}
-            <div className="card-hover p-5 sm:p-6 bg-gradient-to-br from-primary-50 to-blue-50 border-2 border-primary-200 rounded-xl overflow-hidden">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg mx-auto sm:mx-0">
-                <i className="fa fa-lightbulb text-white text-xl sm:text-2xl"></i>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 text-center sm:text-left">Math + AI = Innovation</h3>
-              <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed text-center sm:text-left">
-                Create small projects showing how Math + AI can solve real-life problems.
-              </p>
-              <div className="mb-3 sm:mb-4">
-                <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-xs font-semibold rounded-full">
-                  Example Categories: Education, Construction, Scheduling, Weather
-                </span>
-              </div>
-              <div className="space-y-2 sm:space-y-2.5">
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-primary-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Predict exam marks using simple AI</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-primary-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Estimate material needed for construction</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-primary-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Create an AI timetable maker</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-primary-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Predict weather using maths + AI</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Category 2 */}
-            <div className="card-hover p-5 sm:p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl overflow-hidden">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg mx-auto sm:mx-0">
-                <i className="fa fa-briefcase text-white text-xl sm:text-2xl"></i>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 text-center sm:text-left">Applied Maths + AI Case Challenges</h3>
-              <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed text-center sm:text-left">
-                Solve real-life industry problems using Math + AI.
-              </p>
-              <div className="mb-3 sm:mb-4">
-                <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
-                  Example Categories: Logistics, Investment, Energy, Disaster Management
-                </span>
-              </div>
-              <div className="space-y-2 sm:space-y-2.5">
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-green-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Reduce transport cost using maths + prediction models</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-green-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Choose the best investment mix using maths + AI tools</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-green-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Predict energy usage using simple AI</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-green-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Estimate flood risk using probability + ML</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Category 3 */}
-            <div className="card-hover p-5 sm:p-6 bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-xl overflow-hidden">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg mx-auto sm:mx-0">
-                <i className="fa fa-chart-line text-white text-xl sm:text-2xl"></i>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 text-center sm:text-left">AI in Finance - Simulation Challenge</h3>
-              <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed text-center sm:text-left">
-                Explore how Math + AI are used in finance.
-              </p>
-              <div className="mb-3 sm:mb-4">
-                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
-                  Example Categories: Options Trading, Price Prediction, Risk Analysis
-                </span>
-              </div>
-              <div className="space-y-2 sm:space-y-2.5">
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-purple-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Calculate option prices using formulas + simple AI</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-purple-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Predict future prices using time-series models</span>
-                </div>
-                <div className="flex items-start gap-2 text-xs sm:text-xs text-gray-600">
-                  <i className="fa fa-check-circle text-purple-500 mt-0.5 sm:mt-1 flex-shrink-0"></i>
-                  <span className="leading-relaxed">Check portfolio risk using simulations + AI scoring</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 

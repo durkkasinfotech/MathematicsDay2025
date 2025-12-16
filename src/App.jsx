@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/layout/NavBar';
 import RegistrationForm from './components/RegistrationForm';
+import NxtZenWinter2025Page from './components/NxtZenWinter2025Page';
+import Linguistic2025Page from './components/Linguistic2025Page';
 import Footer from './components/layout/Footer';
 
 function App() {
@@ -10,6 +12,9 @@ function App() {
       <main className="flex-grow relative z-0">
         <Routes>
           <Route path="/" element={<RegistrationForm />} />
+          <Route path="/math" element={<RegistrationForm />} />
+          <Route path="/nxtzenwinter2025" element={<NxtZenWinter2025Page />} />
+          <Route path="/linguistic2025" element={<Linguistic2025Page />} />
         </Routes>
       </main>
       <Footer />
