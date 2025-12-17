@@ -135,9 +135,9 @@ const Linguistic2025Page = () => {
                 <p className="text-xs text-slate-600">10:00 AM – 1:00 PM</p>
               </div>
               <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
-                <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Eligibility</p>
-                <p className="text-base font-bold text-slate-900">Grades 1 – 5</p>
-                <p className="text-xs text-slate-600">Limited seats. Register early.</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Seats</p>
+                <p className="text-base font-bold text-slate-900">Limited seats only</p>
+                <p className="text-xs text-slate-600">Register early to secure a spot</p>
               </div>
               <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
                 <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Venue</p>
@@ -278,7 +278,7 @@ const Linguistic2025Page = () => {
                     disabled={isSubmitting}
                     className="flex w-full items-center justify-center rounded-md bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    {isSubmitting ? 'Submitting...' : 'Submit Interest'}
+                    {isSubmitting ? 'Submitting...' : 'Register Here'}
                   </button>
                 </form>
               </div>
@@ -362,96 +362,10 @@ const Linguistic2025Page = () => {
 
       {/* Info & Contact Section */}
       <section className="border-t border-slate-200 bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
-        <div className="mx-auto max-w-6xl px-4 py-20">
-          <header className="text-center mb-16">
-            <h2 className="text-4xl font-black text-slate-900 tracking-tight mb-4">
-              <span className="bg-gradient-to-r from-slate-900 to-blue-600 bg-clip-text text-transparent">
-                Event Information
-              </span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Everything you need to know about the Linguistic Tornado – 2025 program
-            </p>
-          </header>
-
-          <div className="grid gap-12 lg:grid-cols-2">
-            {/* Event Details Grid */}
-            <div className="space-y-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Event Details</h3>
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="group relative rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200/50 transition-all duration-300 hover:shadow-xl hover:ring-blue-200/50">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative">
-                    <div className="flex items-center mb-3">
-                      <div className="rounded-lg bg-blue-100 p-2 mr-3">
-                        <svg className="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                      <h4 className="text-lg font-bold text-slate-900">Date &amp; Time</h4>
-                    </div>
-                    <p className="text-base text-slate-600 font-medium">December 26 – 28</p>
-                    <p className="text-sm text-slate-500">10:00 AM – 1:00 PM</p>
-                  </div>
-                </div>
-
-                <div className="group relative rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200/50 transition-all duration-300 hover:shadow-xl hover:ring-purple-200/50">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative">
-                    <div className="flex items-center mb-3">
-                      <div className="rounded-lg bg-purple-100 p-2 mr-3">
-                        <svg className="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
-                      </div>
-                      <h4 className="text-lg font-bold text-slate-900">Who Can Join?</h4>
-                    </div>
-                    <p className="text-base text-slate-600 font-medium">Children from Grades 1 to 5</p>
-                    <p className="text-sm text-slate-500">A welcoming space for young learners</p>
-                  </div>
-                </div>
-
-                <div className="group relative rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200/50 transition-all duration-300 hover:shadow-xl hover:ring-emerald-200/50">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative">
-                    <div className="flex items-center mb-3">
-                      <div className="rounded-lg bg-emerald-100 p-2 mr-3">
-                        <svg className="h-6 w-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <h4 className="text-lg font-bold text-slate-900">Seats</h4>
-                    </div>
-                    <p className="text-base text-slate-600 font-medium">Limited seats only</p>
-                    <p className="text-sm text-slate-500">Register early to secure a spot</p>
-                  </div>
-                </div>
-
-                <div className="group relative rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200/50 transition-all duration-300 hover:shadow-xl hover:ring-blue-200/50">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative">
-                    <div className="flex items-center mb-3">
-                      <div className="rounded-lg bg-blue-100 p-2 mr-3">
-                        <svg className="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 12.414A4 4 0 1112.414 11.4l4.243 4.243a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414 0zM10 14a4 4 0 110-8 4 4 0 010 8z" />
-                        </svg>
-                      </div>
-                      <h4 className="text-lg font-bold text-slate-900">Venue</h4>
-                    </div>
-                    <p className="text-base text-slate-600 font-medium">ISOD</p>
-                    <p className="text-sm text-slate-500">
-                      58/2, MDR Nagar North,
-                      <br />SBK College Road,
-                      <br />Aruppukkottai, Virudhunagar District,
-                      <br />Tamil Nadu – 626101
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="flex justify-center">
             {/* Contact Section */}
-            <div className="space-y-8">
+            <div className="space-y-8 max-w-xl text-center">
               <h3 className="text-2xl font-bold text-slate-900 mb-6">Get in Touch</h3>
               <div className="rounded-3xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 shadow-2xl text-white">
                 <div className="space-y-6">
@@ -470,15 +384,17 @@ const Linguistic2025Page = () => {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-blue-200">Contact Number</p>
-                        <p className="text-2xl font-bold">+91 78 12 87 67 87</p>
+                        <p className="text-sm font-medium text-blue-200">Contact</p>
                       </div>
                     </div>
-
+                    
                     <div className="flex">
-                      <button className="w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+                      <a
+                        href="tel:+917812876787"
+                        className="w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center"
+                      >
                         Call Now
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>

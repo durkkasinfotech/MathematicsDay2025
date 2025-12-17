@@ -726,7 +726,6 @@ const RegistrationForm = () => {
             <div className="pt-6 sm:pt-8">
               <div className="flex items-center gap-3 mb-4 sm:mb-5">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-                <div className="text-xs text-gray-500 font-medium">Ready to submit?</div>
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
               </div>
               <button
@@ -747,7 +746,7 @@ const RegistrationForm = () => {
                 ) : (
                   <span className="flex items-center justify-center gap-2 sm:gap-3 relative z-10">
                     <i className="fa fa-paper-plane text-sm sm:text-base"></i>
-                    <span className="font-semibold">Submit Registration</span>
+                    <span className="font-semibold">Register Here</span>
                   </span>
                 )}
               </button>
