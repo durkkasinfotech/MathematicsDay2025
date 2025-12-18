@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../utils/supabaseClient';
 
 const RegistrationForm = () => {
@@ -18,7 +19,7 @@ const RegistrationForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
-  const departments = ['B.Com', 'BSc', 'BCA', 'BA', 'MBA', 'Other'];
+  const departments = ['B.Com', 'BSc', 'BCA', 'BA', 'MBA', 'B.E', 'Other'];
   const yearSemesters = [
     '1st Year / 1st Semester',
     '1st Year / 2nd Semester',
@@ -30,7 +31,7 @@ const RegistrationForm = () => {
     '4th Year / 8th Semester',
     'Other'
   ];
-  const areasOfInterest = ['Edukoot', 'AI & Robotics', 'Accounting & Taxation', 'Digital Marketing'];
+  const areasOfInterest = ['Edukoot', 'AI & Robotics', 'Accounting & Taxation', 'Digital Marketing', 'Business Administration'];
   const courseInterests = ['Yes', 'No', 'Maybe (Need more information)'];
   const competitionCourses = [
     'Math + AI = Innovation',
@@ -594,6 +595,30 @@ const RegistrationForm = () => {
               </ul>
             </div>
           </article>
+        </div>
+      </section>
+
+      {/* Project Upload CTA Section */}
+      <section className="mx-auto max-w-4xl px-4 pb-16 lg:pb-20">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-900 to-indigo-900 px-6 py-10 shadow-2xl sm:px-12 sm:py-16 text-center">
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_#ffffff33,_transparent_70%)]" />
+          <div className="relative z-10">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl mb-4">
+              Ready with your Project?
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-blue-100 mb-8">
+              If you have prepared your PPT or PDF presentation for the competition, please upload it here before the deadline.
+            </p>
+            <Link
+              to="/math/upload"
+              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-bold text-blue-900 transition-all hover:bg-blue-50 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 focus:ring-offset-blue-900"
+            >
+              Upload Project File
+              <svg className="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
