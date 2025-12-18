@@ -274,11 +274,10 @@ const NxtZenWinter2025Page = () => {
 
                   {submitStatus.message && (
                     <p
-                      className={`text-xs rounded-md px-3 py-2 border ${
-                        submitStatus.type === 'success'
+                      className={`text-xs rounded-md px-3 py-2 border ${submitStatus.type === 'success'
                           ? 'text-emerald-700 bg-emerald-50 border-emerald-200'
                           : 'text-red-700 bg-red-50 border-red-200'
-                      }`}
+                        }`}
                     >
                       {submitStatus.message}
                     </p>
@@ -398,49 +397,16 @@ const NxtZenWinter2025Page = () => {
         </div>
       </section>
 
-      {/* Info & Contact Section */}
-      <section className="border-t border-slate-200 bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <div className="flex justify-center">
-            {/* Contact Section */}
-            <div className="space-y-8 max-w-xl text-center">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Get in Touch</h3>
-              <div className="rounded-3xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 shadow-2xl text-white">
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">Need more information?</h4>
-                    <p className="text-blue-100 leading-relaxed">
-                      Call us for program details, schedules, and seat availability.
-                    </p>
-                  </div>
-
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="flex items-center mb-4">
-                      <div className="rounded-lg bg-white/20 p-3 mr-4">
-                        <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-blue-200">Contact</p>
-                      </div>
-                    </div>
-
-                    <div className="flex">
-                      <a
-                        href="tel:+917812876787"
-                        className="w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center"
-                      >
-                        Call Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Floating Call Button */}
+      <a
+        href="tel:+917812876787"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 shadow-lg transition-all hover:bg-blue-700 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-300 animate-bounce"
+        aria-label="Call Now"
+      >
+        <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+      </a>
     </div>
   );
 };
