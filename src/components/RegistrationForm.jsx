@@ -53,7 +53,7 @@ const RegistrationForm = () => {
     setSubmitStatus({ type: '', message: '' });
 
     // Validation
-    if (!formData.fullName || !formData.contactNumber || !formData.emailId ||
+    if (!formData.fullName || !formData.dateOfBirth || !formData.contactNumber || !formData.emailId ||
       !formData.collegeName || !formData.department || !formData.yearSemester ||
       !formData.areaOfInterest || !formData.courseInterest || !formData.competitionCourse) {
       setSubmitStatus({ type: 'error', message: 'Please fill in all required fields.' });
@@ -310,7 +310,7 @@ const RegistrationForm = () => {
                   <div className="grid gap-3 sm:grid-cols-2">
                     <div>
                       <label className="block text-xs font-medium text-slate-700 mb-1">
-                        Date of Birth
+                        Date of Birth<span className="text-red-500">*</span>
                       </label>
                       <input
                         type="date"
@@ -318,6 +318,7 @@ const RegistrationForm = () => {
                         value={formData.dateOfBirth}
                         onChange={handleChange}
                         className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        required
                       />
                     </div>
                     <div>

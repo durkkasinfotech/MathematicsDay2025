@@ -96,9 +96,32 @@ const MathProjectUpload = () => {
         }
 
         setIsSubmitting(true);
-        setStatus({ type: 'info', message: 'Uploading project...' });
+        setStatus({ type: 'info', message: 'Checking for existing uploads...' });
 
         try {
+            // Check if this email has already uploaded a project
+            const { data: existingUpload, error: checkError } = await supabase
+                .from('math_project_uploads')
+                .select('id, email_id')
+                .eq('email_id', formData.emailId.trim())
+                .limit(1);
+
+            if (checkError) {
+                console.error('Error checking existing uploads:', checkError);
+                throw new Error('Failed to verify upload status. Please try again.');
+            }
+
+            if (existingUpload && existingUpload.length > 0) {
+                setStatus({
+                    type: 'error',
+                    message: 'You have already uploaded a project. Each email can only submit once. If you need to update your submission, please contact the organizers.'
+                });
+                setIsSubmitting(false);
+                return;
+            }
+
+            setStatus({ type: 'info', message: 'Uploading project...' });
+
             // 1. Rename File
             const fileExt = file.name.split('.').pop();
             const sanitizedEmail = formData.emailId.replace(/[^a-zA-Z0-9]/g, '').substring(0, 10); // Shorten for filename
