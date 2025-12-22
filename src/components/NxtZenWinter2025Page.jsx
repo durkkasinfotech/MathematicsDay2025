@@ -135,7 +135,7 @@ const NxtZenWinter2025Page = () => {
             </div>
             <p className="max-w-xl text-base md:text-lg text-blue-50 leading-relaxed drop-shadow-sm">
               Empower your children with tomorrow&apos;s technology through fun, creativity, and innovation.
-              Hands-on coding, robotics, animation, and 3D/VR city building – tailored for grades 1 to 12.
+              Hands-on coding, robotics, animation, and 3D/VR city building – tailored for grade KG to 12.
             </p>
 
             <div className="grid gap-4 sm:grid-cols-3 max-w-xl">
@@ -147,7 +147,7 @@ const NxtZenWinter2025Page = () => {
               </div>
               <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
                 <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Eligibility</p>
-                <p className="text-base font-bold text-slate-900">Grades 1 – 12</p>
+                <p className="text-base font-bold text-slate-900">Grade KG - 12</p>
                 <p className="text-xs text-slate-600">Limited seats. Enroll early.</p>
               </div>
               <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
@@ -190,7 +190,7 @@ const NxtZenWinter2025Page = () => {
                         className="w-full rounded-lg border-2 border-slate-200 px-4 py-3 text-base font-medium text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 appearance-none bg-white cursor-pointer hover:border-slate-300"
                       >
                         <option value="" className="text-slate-500">Select grade</option>
-                        <option value="1-2" className="text-slate-900">Grades 1 – 2</option>
+                        <option value="kg-2" className="text-slate-900">KG - 2</option>
                         <option value="3-5" className="text-slate-900">Grades 3 – 5</option>
                         <option value="6-8" className="text-slate-900">Grades 6 – 8</option>
                         <option value="9-10" className="text-slate-900">Grades 9 – 10</option>
@@ -275,8 +275,8 @@ const NxtZenWinter2025Page = () => {
                   {submitStatus.message && (
                     <p
                       className={`text-xs rounded-md px-3 py-2 border ${submitStatus.type === 'success'
-                          ? 'text-emerald-700 bg-emerald-50 border-emerald-200'
-                          : 'text-red-700 bg-red-50 border-red-200'
+                        ? 'text-emerald-700 bg-emerald-50 border-emerald-200'
+                        : 'text-red-700 bg-red-50 border-red-200'
                         }`}
                     >
                       {submitStatus.message}
@@ -315,7 +315,7 @@ const NxtZenWinter2025Page = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="relative">
               <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 mb-4">
-                <span className="text-sm font-bold text-blue-700">Grades 1 – 2</span>
+                <span className="text-sm font-bold text-blue-700">KG - 2</span>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight">WizBot Jungle Adventure</h3>
               <ul className="space-y-3 text-slate-700">
