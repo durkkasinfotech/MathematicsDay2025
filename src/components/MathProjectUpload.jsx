@@ -193,139 +193,31 @@ const MathProjectUpload = () => {
             {/* Upload Form Section */}
             <section className="py-12 px-4">
                 <div className="mx-auto max-w-lg rounded-3xl bg-white p-8 shadow-2xl ring-1 ring-slate-900/5 sm:p-12">
-                    <form onSubmit={handleSubmit} className="space-y-6">
-
-                        {/* Status Message */}
-                        {status.message && (
-                            <div className={`rounded-md p-4 text-sm font-medium ${status.type === 'success' ? 'bg-emerald-50 text-emerald-700' :
-                                status.type === 'error' ? 'bg-red-50 text-red-700' :
-                                    'bg-blue-50 text-blue-700'
-                                }`}>
-                                {status.message}
-                            </div>
-                        )}
-
-                        {/* Email Lookup */}
-                        <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-slate-700">
-                                Registered Email ID <span className="text-red-500">*</span>
-                            </label>
-                            <div className="mt-1 relative">
-                                <input
-                                    type="email"
-                                    id="email"
-                                    required
-                                    value={formData.emailId}
-                                    onChange={(e) => setFormData(prev => ({ ...prev, emailId: e.target.value }))}
-                                    onBlur={handleEmailBlur}
-                                    className="block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-4 py-3 border"
-                                    placeholder="Enter the email you registered with"
-                                />
-                                {isSearching && (
-                                    <div className="absolute right-3 top-3">
-                                        <div className="h-5 w-5 animate-spin rounded-full border-2 border-blue-500 border-t-transparent"></div>
-                                    </div>
-                                )}
-                            </div>
-                            <p className="mt-1 text-xs text-slate-500">
-                                Registration details will be fetched automatically.
+                    {/* Event Over Message */}
+                    <div className="text-center py-6">
+                        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-100 mb-6">
+                            <svg className="h-8 w-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m0 0v2m0-2h2m-2 0H10m1-11a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+                                <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" strokeWidth="2" />
+                            </svg>
+                        </div>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-2">Submissions Closed</h2>
+                        <p className="text-slate-600 mb-8">
+                            Mathematics Day 2025 has concluded and project submissions are no longer being accepted.
+                        </p>
+                        <div className="space-y-3">
+                            <button
+                                onClick={() => window.location.href = 'https://darecentre.in/'}
+                                className="w-full rounded-md bg-blue-600 px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition-all font-bold"
+                            >
+                                Back to Homepage
+                            </button>
+                            <p className="text-xs text-slate-400">
+                                If you need assistance, please contact the organizers.
                             </p>
                         </div>
-
-                        {/* Read-Only Registration Details */}
-                        <div className={`rounded-xl p-4 border transition-all duration-300 ${formData.fullName ? 'bg-emerald-50 border-emerald-100' : 'bg-slate-50 border-slate-100'}`}>
-                            <div className="flex items-center justify-between">
-                                <div>
-                                    <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                                        Student Name
-                                    </label>
-                                    <div className="mt-1 text-base font-bold text-slate-900">
-                                        {formData.fullName || '---'}
-                                    </div>
-                                </div>
-                                {formData.fullName && (
-                                    <div className="h-8 w-8 bg-emerald-500 rounded-full flex items-center justify-center text-white shadow-sm">
-                                        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                        </svg>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* Mobile Number (Optional) */}
-                        <div>
-                            <label htmlFor="mobile" className="block text-sm font-medium text-slate-700">
-                                Mobile Number <span className="text-slate-400 font-normal">(Optional)</span>
-                            </label>
-                            <input
-                                type="tel"
-                                id="mobile"
-                                value={formData.contactNumber}
-                                onChange={(e) => setFormData(prev => ({ ...prev, contactNumber: e.target.value }))}
-                                className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-4 py-3 border"
-                                placeholder="Confirmation will be sent here"
-                            />
-                        </div>
-
-                        {/* File Upload */}
-                        <div>
-                            <label className="block text-sm font-semibold text-slate-700 mb-2">
-                                Project File <span className="text-red-500">*</span>
-                            </label>
-                            <div className="group relative mt-2 flex justify-center rounded-2xl border-2 border-dashed border-slate-300 px-6 py-10 transition-all hover:bg-slate-50 hover:border-blue-400">
-                                <div className="text-center">
-                                    {file ? (
-                                        <div className="animate-fade-in">
-                                            <div className="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-3">
-                                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                </svg>
-                                            </div>
-                                            <p className="text-sm font-medium text-slate-900 break-all max-w-[200px] mx-auto">{file.name}</p>
-                                            <p className="text-xs text-slate-500 mt-1">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
-                                            <button
-                                                type="button"
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    setFile(null);
-                                                }}
-                                                className="mt-3 text-xs font-medium text-red-600 hover:text-red-700 underline"
-                                            >
-                                                Remove File
-                                            </button>
-                                        </div>
-                                    ) : (
-                                        <>
-                                            <div className="mx-auto h-12 w-12 rounded-full bg-blue-50 flex items-center justify-center mb-3 group-hover:bg-blue-100 transition-colors">
-                                                <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                                </svg>
-                                            </div>
-                                            <div className="flex text-sm text-slate-600 justify-center">
-                                                <label htmlFor="file-upload" className="relative cursor-pointer rounded-md font-bold text-blue-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 hover:text-blue-500">
-                                                    <span>Click to upload</span>
-                                                    <input id="file-upload" name="file-upload" type="file" className="sr-only" accept=".pdf,.ppt,.pptx" onChange={handleFileChange} />
-                                                </label>
-                                                <p className="pl-1">or drag and drop</p>
-                                            </div>
-                                            <p className="text-xs text-slate-400 mt-2">PDF, PPT, PPTX up to 10MB</p>
-                                        </>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Submit Button */}
-                        <button
-                            type="submit"
-                            disabled={isSubmitting || !formData.registrationId || !file}
-                            className="w-full rounded-md bg-blue-600 px-3.5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                        >
-                            {isSubmitting ? 'Uploading...' : 'Submit Project'}
-                        </button>
-
-                    </form>
+                    </div>
                 </div>
             </section>
         </div>

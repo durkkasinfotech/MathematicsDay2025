@@ -211,8 +211,8 @@ const RegistrationForm = () => {
   const currentDate = new Date();
   const registrationStart = new Date('2025-12-17');
   const registrationEnd = new Date('2025-12-20');
-  // Enable for testing - set to true to allow form submission anytime
-  const isRegistrationOpen = true; // Testing mode enabled
+  // Registration is now closed as the event is over
+  const isRegistrationOpen = false;
   // const isRegistrationOpen = currentDate >= registrationStart && currentDate <= registrationEnd; // Production mode
 
   return (
@@ -235,36 +235,45 @@ const RegistrationForm = () => {
                   Mathematics Day 2025
                 </span>
                 <span className="block text-2xl md:text-3xl font-bold text-blue-100 mt-3 tracking-wide">
-                  Where Mathematics Meets Artificial Intelligence
+                  Event Successfully Completed!
                 </span>
               </h1>
             </div>
             <p className="max-w-xl text-base md:text-lg text-blue-50 leading-relaxed drop-shadow-sm">
               December 22, 2025
               <br />
-              Join us for a day of innovation, challenges, and exploring the future of Math and AI.
+              Thank you to everyone who participated in this celebration of innovation and mathematics.
             </p>
 
             <div className="grid gap-4 sm:grid-cols-3 max-w-xl">
               {/* Registration Period */}
-              <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
-                <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Registration</p>
-                <p className="text-base font-bold text-slate-900">Dec 17 – 20</p>
-                <p className="text-xs text-slate-600">Period to register</p>
+              <div className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-5 py-4 shadow-2xl">
+                <p className="text-xs font-bold uppercase tracking-wider text-blue-200 mb-1 flex items-center">
+                  Registration
+                  <span className="ml-2 inline-block h-2 w-2 rounded-full bg-red-400"></span>
+                </p>
+                <p className="text-base font-bold text-white">Closed</p>
+                <p className="text-xs text-blue-100">Dec 17 – 20</p>
               </div>
 
               {/* Online Submission */}
-              <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
-                <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Submission</p>
-                <p className="text-base font-bold text-slate-900">Dec 17 – 21</p>
-                <p className="text-xs text-slate-600">Online project submission</p>
+              <div className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-5 py-4 shadow-2xl">
+                <p className="text-xs font-bold uppercase tracking-wider text-blue-200 mb-1 flex items-center">
+                  Submission
+                  <span className="ml-2 inline-block h-2 w-2 rounded-full bg-red-400"></span>
+                </p>
+                <p className="text-base font-bold text-white">Ended</p>
+                <p className="text-xs text-blue-100">Dec 17 – 21</p>
               </div>
 
               {/* Result Announcement */}
-              <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
-                <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Results</p>
-                <p className="text-base font-bold text-slate-900">Dec 22, 2025</p>
-                <p className="text-xs text-slate-600">Winners announced</p>
+              <div className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-5 py-4 shadow-2xl">
+                <p className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1 flex items-center">
+                  Status
+                  <span className="ml-2 inline-block h-2 w-2 rounded-full bg-emerald-400"></span>
+                </p>
+                <p className="text-base font-bold text-white">Completed</p>
+                <p className="text-xs text-blue-100">Dec 22, 2025</p>
               </div>
             </div>
           </div>
@@ -289,207 +298,236 @@ const RegistrationForm = () => {
                   </p>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Full Name */}
-                  <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
-                      Full Name<span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      placeholder="Enter full name"
-                      className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                      required
-                    />
+                {!isRegistrationOpen ? (
+                  <div className="space-y-6 py-8 text-center">
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
+                      <svg className="h-8 w-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m0 0v2m0-2h2m-2 0H10m1-11a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+                        <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" strokeWidth="2" />
+                      </svg>
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold text-slate-900">Registration Closed</h3>
+                      <p className="text-sm text-slate-600">
+                        We are no longer accepting new registrations for Mathematics Day 2025 as the event has concluded.
+                      </p>
+                    </div>
+                    <div className="pt-4">
+                      <a
+                        href="https://darecentre.in/"
+                        className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700"
+                      >
+                        Visit Homepage
+                        <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
-
-                  {/* DOB & Contact */}
-                  <div className="grid gap-3 sm:grid-cols-2">
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Full Name */}
                     <div>
                       <label className="block text-xs font-medium text-slate-700 mb-1">
-                        Date of Birth<span className="text-red-500">*</span>
+                        Full Name<span className="text-red-500">*</span>
                       </label>
                       <input
-                        type="date"
-                        name="dateOfBirth"
-                        value={formData.dateOfBirth}
+                        type="text"
+                        name="fullName"
+                        value={formData.fullName}
                         onChange={handleChange}
+                        placeholder="Enter full name"
                         className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                         required
                       />
                     </div>
+
+                    {/* DOB & Contact */}
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div>
+                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                          Date of Birth<span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="date"
+                          name="dateOfBirth"
+                          value={formData.dateOfBirth}
+                          onChange={handleChange}
+                          className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                          Contact Number<span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          name="contactNumber"
+                          value={formData.contactNumber}
+                          onChange={handleChange}
+                          placeholder="10-digit number"
+                          className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                          maxLength="10"
+                          inputMode="numeric"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    {/* Email */}
                     <div>
                       <label className="block text-xs font-medium text-slate-700 mb-1">
-                        Contact Number<span className="text-red-500">*</span>
+                        Email Address<span className="text-red-500">*</span>
                       </label>
                       <input
-                        type="tel"
-                        name="contactNumber"
-                        value={formData.contactNumber}
+                        type="email"
+                        name="emailId"
+                        value={formData.emailId}
                         onChange={handleChange}
-                        placeholder="10-digit number"
+                        placeholder="your.email@example.com"
                         className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                        maxLength="10"
-                        inputMode="numeric"
+                        inputMode="email"
                         required
                       />
                     </div>
-                  </div>
 
-                  {/* Email */}
-                  <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
-                      Email Address<span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="emailId"
-                      value={formData.emailId}
-                      onChange={handleChange}
-                      placeholder="your.email@example.com"
-                      className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                      inputMode="email"
-                      required
-                    />
-                  </div>
+                    {/* College Name */}
+                    <div>
+                      <label className="block text-xs font-medium text-slate-700 mb-1">
+                        College Name<span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="collegeName"
+                        value={formData.collegeName}
+                        onChange={handleChange}
+                        placeholder="Enter college name"
+                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+                        required
+                      />
+                    </div>
 
-                  {/* College Name */}
-                  <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
-                      College Name<span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="collegeName"
-                      value={formData.collegeName}
-                      onChange={handleChange}
-                      placeholder="Enter college name"
-                      className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                      required
-                    />
-                  </div>
+                    {/* Department & Year */}
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="relative">
+                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                          Department<span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="department"
+                          value={formData.department}
+                          onChange={handleChange}
+                          className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 appearance-none bg-white cursor-pointer"
+                          required
+                        >
+                          <option value="">Select Dept</option>
+                          {departments.map((dept) => (
+                            <option key={dept} value={dept}>{dept}</option>
+                          ))}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-slate-500">
+                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                      </div>
+                      <div className="relative">
+                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                          Year / Sem<span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="yearSemester"
+                          value={formData.yearSemester}
+                          onChange={handleChange}
+                          className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 appearance-none bg-white cursor-pointer"
+                          required
+                        >
+                          <option value="">Select Year</option>
+                          {yearSemesters.map((sem) => (
+                            <option key={sem} value={sem}>{sem}</option>
+                          ))}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-slate-500">
+                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                      </div>
+                    </div>
 
-                  {/* Department & Year */}
-                  <div className="grid gap-3 sm:grid-cols-2">
+                    {/* Competition Course */}
                     <div className="relative">
                       <label className="block text-xs font-medium text-slate-700 mb-1">
-                        Department<span className="text-red-500">*</span>
+                        Competition Category<span className="text-red-500">*</span>
                       </label>
                       <select
-                        name="department"
-                        value={formData.department}
+                        name="competitionCourse"
+                        value={formData.competitionCourse}
                         onChange={handleChange}
                         className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 appearance-none bg-white cursor-pointer"
                         required
                       >
-                        <option value="">Select Dept</option>
-                        {departments.map((dept) => (
-                          <option key={dept} value={dept}>{dept}</option>
+                        <option value="">Select Competition Category</option>
+                        {competitionCourses.map((course) => (
+                          <option key={course} value={course}>{course}</option>
                         ))}
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-slate-500">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 pt-6 text-slate-500">
                         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                       </div>
                     </div>
-                    <div className="relative">
-                      <label className="block text-xs font-medium text-slate-700 mb-1">
-                        Year / Sem<span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        name="yearSemester"
-                        value={formData.yearSemester}
-                        onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 appearance-none bg-white cursor-pointer"
-                        required
-                      >
-                        <option value="">Select Year</option>
-                        {yearSemesters.map((sem) => (
-                          <option key={sem} value={sem}>{sem}</option>
-                        ))}
-                      </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-slate-500">
-                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                      </div>
-                    </div>
-                  </div>
 
-                  {/* Competition Course */}
-                  <div className="relative">
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
-                      Competition Category<span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      name="competitionCourse"
-                      value={formData.competitionCourse}
-                      onChange={handleChange}
-                      className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 appearance-none bg-white cursor-pointer"
-                      required
+                    {/* Areas of Interest & Course Interest */}
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="relative">
+                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                          Area of Interest<span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="areaOfInterest"
+                          value={formData.areaOfInterest}
+                          onChange={handleChange}
+                          className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 appearance-none bg-white cursor-pointer"
+                          required
+                        >
+                          <option value="">Select Area</option>
+                          {areasOfInterest.map((area) => (
+                            <option key={area} value={area}>{area}</option>
+                          ))}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-slate-500">
+                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                      </div>
+                      <div className="relative">
+                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                          Interested in Courses?<span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="courseInterest"
+                          value={formData.courseInterest}
+                          onChange={handleChange}
+                          className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 appearance-none bg-white cursor-pointer"
+                          required
+                        >
+                          <option value="">Select Option</option>
+                          {courseInterests.map((val) => (
+                            <option key={val} value={val}>{val}</option>
+                          ))}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-slate-500">
+                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting || !isRegistrationOpen}
+                      className="flex w-full items-center justify-center rounded-md bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-70 mt-2"
                     >
-                      <option value="">Select Competition Category</option>
-                      {competitionCourses.map((course) => (
-                        <option key={course} value={course}>{course}</option>
-                      ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 pt-6 text-slate-500">
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                    </div>
-                  </div>
-
-                  {/* Areas of Interest & Course Interest */}
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div className="relative">
-                      <label className="block text-xs font-medium text-slate-700 mb-1">
-                        Area of Interest<span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        name="areaOfInterest"
-                        value={formData.areaOfInterest}
-                        onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 appearance-none bg-white cursor-pointer"
-                        required
-                      >
-                        <option value="">Select Area</option>
-                        {areasOfInterest.map((area) => (
-                          <option key={area} value={area}>{area}</option>
-                        ))}
-                      </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-slate-500">
-                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                      </div>
-                    </div>
-                    <div className="relative">
-                      <label className="block text-xs font-medium text-slate-700 mb-1">
-                        Interested in Courses?<span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        name="courseInterest"
-                        value={formData.courseInterest}
-                        onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 appearance-none bg-white cursor-pointer"
-                        required
-                      >
-                        <option value="">Select Option</option>
-                        {courseInterests.map((val) => (
-                          <option key={val} value={val}>{val}</option>
-                        ))}
-                      </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-slate-500">
-                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting || !isRegistrationOpen}
-                    className="flex w-full items-center justify-center rounded-md bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-70 mt-2"
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Register Now'}
-                  </button>
-                </form>
+                      {isSubmitting ? 'Submitting...' : 'Register Now'}
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
           </div>
@@ -601,24 +639,29 @@ const RegistrationForm = () => {
 
       {/* Project Upload CTA Section */}
       <section className="mx-auto max-w-4xl px-4 pb-16 lg:pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-900 to-indigo-900 px-6 py-10 shadow-2xl sm:px-12 sm:py-16 text-center">
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_#ffffff33,_transparent_70%)]" />
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-800 to-slate-900 px-6 py-10 shadow-2xl sm:px-12 sm:py-16 text-center">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_#ffffff33,_transparent_70%)]" />
           <div className="relative z-10">
             <h2 className="text-2xl font-bold text-white sm:text-3xl mb-4">
-              Ready with your Project?
+              Project Submissions Closed
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-blue-100 mb-8">
-              If you have prepared your PPT or PDF presentation for the competition, please upload it here before the deadline.
+            <p className="mx-auto max-w-2xl text-lg text-slate-300 mb-8">
+              The deadline for project submissions has passed. Thank you for your innovative contributions!
             </p>
-            <Link
-              to="/math/upload"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-bold text-blue-900 transition-all hover:bg-blue-50 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 focus:ring-offset-blue-900"
-            >
-              Upload Project File
-              <svg className="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-              </svg>
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://darecentre.in/"
+                className="inline-flex items-center justify-center rounded-full bg-white/10 px-8 py-3 text-base font-bold text-white border border-white/20 backdrop-blur-sm transition-all hover:bg-white/20"
+              >
+                Back to Home
+              </a>
+              <a
+                href="tel:+917812876787"
+                className="inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3 text-base font-bold text-white transition-all hover:bg-blue-700 hover:scale-105"
+              >
+                Contact Support
+              </a>
+            </div>
           </div>
         </div>
       </section>
