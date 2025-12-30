@@ -111,6 +111,8 @@ const NxtZenWinter2025Page = () => {
     }
   };
 
+  const isRegistrationOpen = false;
+
   return (
     <div className="relative bg-slate-50">
       {/* Hero Section */}
@@ -122,175 +124,65 @@ const NxtZenWinter2025Page = () => {
           <div className="flex-1 space-y-8">
             <div className="space-y-3">
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-blue-200 drop-shadow-sm">
-                This Winter at Dare Centre
+                NxtZen Winter 2025
               </p>
               <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
                   NxtZen Coders
                 </span>
                 <span className="block text-2xl md:text-3xl font-bold text-blue-100 mt-3 tracking-wide">
-                  The Coolest Coding Adventure This Winter!
+                  Event Registration Closed
                 </span>
               </h1>
             </div>
             <p className="max-w-xl text-base md:text-lg text-blue-50 leading-relaxed drop-shadow-sm">
-              Empower your children with tomorrow&apos;s technology through fun, creativity, and innovation.
-              Hands-on coding, robotics, animation, and 3D/VR city building – tailored for grade KG to 12.
+              Thank you for the overwhelming response! The NxtZen Winter 2025 coding adventure registrations are now closed.
+              Stay tuned for our upcoming events and future batches.
             </p>
 
             <div className="grid gap-4 sm:grid-cols-3 max-w-xl">
               <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
-                <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Date &amp; Venue</p>
-                <p className="text-base font-bold text-slate-900">Dec 29 – 31</p>
-                <p className="text-xs text-slate-600">10:00 AM – 1:00 PM</p>
-                <p className="text-xs text-slate-600 mt-2">DARE Centre · www.darecentre.in</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Status</p>
+                <p className="text-base font-bold text-red-600">Closed</p>
+                <p className="text-xs text-slate-600">Admissions Full</p>
               </div>
               <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
                 <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Eligibility</p>
                 <p className="text-base font-bold text-slate-900">Grade KG - 12</p>
-                <p className="text-xs text-slate-600">Limited seats. Enroll early.</p>
+                <p className="text-xs text-slate-600">Upcoming Batches Soon</p>
               </div>
               <div className="rounded-2xl bg-white backdrop-blur-md border border-white/30 px-5 py-4 shadow-2xl">
-                <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Seats</p>
-                <p className="text-base font-bold text-slate-900">Limited seats available</p>
-                <p className="text-xs text-slate-600">Enroll early to reserve your spot</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Date</p>
+                <p className="text-base font-bold text-slate-900">Dec 2025</p>
+                <p className="text-xs text-slate-600">Winter Edition</p>
               </div>
             </div>
           </div>
 
           <div className="flex-1">
             <div className="mx-auto max-w-md rounded-2xl bg-white/10 p-1 backdrop-blur">
-              <div className="rounded-2xl bg-white p-6 shadow-xl">
-                <h2 className="mb-1 text-lg font-semibold text-slate-900">Register Your Child</h2>
-                <p className="mb-4 text-xs text-slate-600">
-                  Temporary registration form – for initial interest collection only. Final confirmation process will be shared later.
+              <div className="rounded-2xl bg-white p-8 shadow-xl text-center">
+                <div className="mb-6 flex justify-center">
+                  <div className="h-20 w-20 rounded-full bg-red-50 flex items-center justify-center">
+                    <svg className="h-10 w-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m0 0v2m0-2h2m-2 0H10m11-3V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2v-3z" />
+                    </svg>
+                  </div>
+                </div>
+                <h2 className="mb-2 text-xl font-bold text-slate-900">Registrations Closed</h2>
+                <p className="mb-6 text-sm text-slate-600 leading-relaxed">
+                  We have reached our maximum capacity for this session. Follow us for updates on the next coding adventure!
                 </p>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1">
-                      Student Name<span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="studentName"
-                      value={formData.studentName}
-                      onChange={handleChange}
-                      className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                    />
-                  </div>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div className="relative">
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">
-                        Grade<span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        name="grade"
-                        value={formData.grade}
-                        onChange={handleChange}
-                        className="w-full rounded-lg border-2 border-slate-200 px-4 py-3 text-base font-medium text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 appearance-none bg-white cursor-pointer hover:border-slate-300"
-                      >
-                        <option value="" className="text-slate-500">Select grade</option>
-                        <option value="kg-2" className="text-slate-900">KG - 2</option>
-                        <option value="3-5" className="text-slate-900">Grades 3 – 5</option>
-                        <option value="6-8" className="text-slate-900">Grades 6 – 8</option>
-                        <option value="9-10" className="text-slate-900">Grades 9 – 10</option>
-                        <option value="11-12" className="text-slate-900">Grades 11 – 12</option>
-                      </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-700">
-                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium text-slate-700 mb-1">School Name</label>
-                      <input
-                        type="text"
-                        name="schoolName"
-                        value={formData.schoolName}
-                        onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div>
-                      <label className="block text-xs font-medium text-slate-700 mb-1">
-                        Parent / Guardian Name<span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="parentName"
-                        value={formData.parentName}
-                        onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium text-slate-700 mb-1">
-                        Parent Contact Number<span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="tel"
-                        name="contactNumber"
-                        value={formData.contactNumber}
-                        onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                        maxLength="10"
-                        inputMode="numeric"
-                        pattern="[0-9]*"
-                        onKeyPress={(e) => {
-                          if (!/[0-9]/.test(e.key)) {
-                            e.preventDefault();
-                          }
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div>
-                      <label className="block text-xs font-medium text-slate-700 mb-1">Email ID</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                        inputMode="email"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium text-slate-700 mb-1">City</label>
-                      <input
-                        type="text"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleChange}
-                        className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                      />
-                    </div>
-                  </div>
-
-                  {submitStatus.message && (
-                    <p
-                      className={`text-xs rounded-md px-3 py-2 border ${submitStatus.type === 'success'
-                        ? 'text-emerald-700 bg-emerald-50 border-emerald-200'
-                        : 'text-red-700 bg-red-50 border-red-200'
-                        }`}
-                    >
-                      {submitStatus.message}
-                    </p>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="flex w-full items-center justify-center rounded-md bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-70"
+                <div className="pt-4 border-t border-slate-100">
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Need Help?</p>
+                  <a
+                    href="tel:+917812876787"
+                    className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline"
                   >
-                    {isSubmitting ? 'Submitting...' : 'Register Here'}
-                  </button>
-                </form>
+                    <i className="fas fa-phone-alt text-xs"></i>
+                    +91 78128 76787
+                  </a>
+                </div>
               </div>
             </div>
           </div>

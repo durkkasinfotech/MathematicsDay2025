@@ -396,14 +396,14 @@ const RegistrationForm = () => {
                     {/* College Name */}
                     <div>
                       <label className="block text-xs font-medium text-slate-700 mb-1">
-                        College Name<span className="text-red-500">*</span>
+                        School / College Name<span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
                         name="collegeName"
                         value={formData.collegeName}
                         onChange={handleChange}
-                        placeholder="Enter college name"
+                        placeholder="Enter school or college name"
                         className="w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                         required
                       />
@@ -534,108 +534,177 @@ const RegistrationForm = () => {
         </div>
       </section>
 
-      {/* Program Highlights (Competition Categories) */}
-      <section className="mx-auto max-w-6xl px-4 py-16 lg:py-20">
-        <header className="mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-            <span className="bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">
-              Competition Categories
-            </span>
+      {/* Winners Circle / Hall of Fame Section */}
+      <section className="mx-auto max-w-7xl px-4 py-16 lg:py-24 relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-200/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-[100px] -z-10"></div>
+
+        <header className="mb-20 text-center space-y-6 relative">
+          <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-slate-900 text-white text-xs font-black uppercase tracking-[0.4em] shadow-2xl shadow-slate-900/20">
+            <i className="fas fa-star text-amber-400"></i> Grand Finale Results <i className="fas fa-star text-amber-400"></i>
+          </div>
+          <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none">
+            Hall of <br className="md:hidden" />
+            <span className="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 bg-clip-text text-transparent">EXCELLENCE</span>
           </h2>
-          <p className="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">
-            Explore innovative projects that combine Mathematics and Artificial Intelligence to solve real-world challenges
-          </p>
+          <div className="h-1.5 w-32 bg-amber-500 mx-auto rounded-full"></div>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Card 1 */}
-          <article className="group relative flex flex-col rounded-3xl bg-gradient-to-br from-white to-blue-50 p-8 shadow-xl ring-1 ring-blue-100/50 transition-all duration-300 hover:shadow-2xl hover:scale-105">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative">
-              <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 mb-4">
-                <i className="fa fa-lightbulb text-blue-600 mr-2"></i>
-                <span className="text-sm font-bold text-blue-700">Innovation</span>
+        <div className="grid gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
+          {/* Winner Card - 1st Place */}
+          <div className="relative group perspective">
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 rounded-[3.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <div className="relative overflow-hidden rounded-[3.2rem] bg-white border border-amber-100 shadow-[0_30px_70px_rgba(0,0,0,0.08)] transition-all duration-500 group-hover:-translate-y-2">
+              {/* Card Header Background */}
+              <div className="h-32 bg-gradient-to-br from-amber-500 via-yellow-400 to-amber-600 relative flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_50%,_rgba(255,255,255,0.8),_transparent_50%)]"></div>
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20cx%3D%223%22%20cy%3D%223%22%20r%3D%223%22/%3E%3C/g%3E%3C/svg%3E')] mt-4 opacity-40"></div>
+                <div className="relative px-8 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-black text-xs uppercase tracking-[0.3em] flex items-center gap-2">
+                  🏆 Championship Winners
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4 leading-tight">Math + AI = Innovation</h3>
-              <p className="text-sm text-slate-600 mb-4">
-                Create small projects showing how Math + AI can solve real-life problems.
-              </p>
-              <ul className="space-y-3 text-slate-700 text-sm">
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2 mt-1">•</span>
-                  <span>Predict exam marks</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2 mt-1">•</span>
-                  <span>Construction material estimation</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2 mt-1">•</span>
-                  <span>AI Timetable maker</span>
-                </li>
-              </ul>
-            </div>
-          </article>
 
-          {/* Card 2 */}
-          <article className="group relative flex flex-col rounded-3xl bg-gradient-to-br from-white to-emerald-50 p-8 shadow-xl ring-1 ring-emerald-100/50 transition-all duration-300 hover:shadow-2xl hover:scale-105">
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative">
-              <div className="inline-flex items-center rounded-full bg-emerald-100 px-4 py-2 mb-4">
-                <i className="fa fa-briefcase text-emerald-600 mr-2"></i>
-                <span className="text-sm font-bold text-emerald-700">Case Challenges</span>
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4 leading-tight">Applied Maths + AI</h3>
-              <p className="text-sm text-slate-600 mb-4">
-                Solve real-life industry problems using Math + AI.
-              </p>
-              <ul className="space-y-3 text-slate-700 text-sm">
-                <li className="flex items-start">
-                  <span className="text-emerald-500 mr-2 mt-1">•</span>
-                  <span>Reduce transport costs</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-emerald-500 mr-2 mt-1">•</span>
-                  <span>Investment mix Optimization</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-emerald-500 mr-2 mt-1">•</span>
-                  <span>Predict energy usage</span>
-                </li>
-              </ul>
-            </div>
-          </article>
+              <div className="p-10 md:p-12 -mt-6 bg-white rounded-t-[3rem] relative z-10">
+                <div className="flex justify-between items-start mb-10">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-50 text-amber-600 text-[10px] font-black uppercase tracking-widest border border-amber-100">
+                      RANK 01
+                    </div>
+                    <h3 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">P. Vimal</h3>
+                    <p className="text-sm font-bold text-slate-500 uppercase tracking-tight flex items-center gap-2 italic">
+                      <i className="fas fa-university text-amber-500"></i> Sree Sowdambika College of Engineering
+                    </p>
+                  </div>
+                  <div className="h-24 w-24 rounded-full bg-gradient-to-br from-amber-50 to-white border-4 border-amber-100 shadow-xl flex items-center justify-center animate-pulse">
+                    <i className="fas fa-trophy text-4xl text-amber-500"></i>
+                  </div>
+                </div>
 
-          {/* Card 3 */}
-          <article className="group relative flex flex-col rounded-3xl bg-gradient-to-br from-white to-purple-50 p-8 shadow-xl ring-1 ring-purple-100/50 transition-all duration-300 hover:shadow-2xl hover:scale-105">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="relative">
-              <div className="inline-flex items-center rounded-full bg-purple-100 px-4 py-2 mb-4">
-                <i className="fa fa-chart-line text-purple-600 mr-2"></i>
-                <span className="text-sm font-bold text-purple-700">Finance</span>
+                <div className="space-y-8">
+                  <div className="p-8 rounded-[2rem] bg-slate-900 relative overflow-hidden group/score">
+                    <div className="absolute top-0 right-0 p-4 opacity-10">
+                      <i className="fas fa-chart-pie text-6xl text-white"></i>
+                    </div>
+                    <p className="text-[10px] font-black text-amber-400 uppercase tracking-[0.4em] mb-6">Evaluation Scoreboard</p>
+                    <div className="grid grid-cols-5 gap-4 mb-8">
+                      {[2, 2, 2, 2, 1.5].map((val, i) => (
+                        <div key={i} className="space-y-2">
+                          <div className="bg-white/10 text-white rounded-xl py-3 text-center font-black border border-white/10 group-hover/score:border-amber-500/50 transition-colors">
+                            {val}
+                          </div>
+                          <p className="text-[8px] text-center font-black text-slate-500 uppercase">CRT {i + 1}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between pt-6 border-t border-white/10">
+                      <span className="text-xs font-black text-white uppercase tracking-widest">Total Performance</span>
+                      <div className="text-right">
+                        <span className="text-4xl font-black text-amber-400 italic tracking-tighter">9.5 <span className="text-xl opacity-50 font-bold">/ 10</span></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-4 rounded-2xl border border-slate-100 bg-slate-50/50">
+                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">Competition</p>
+                      <p className="text-xs font-black text-slate-700">Math + AI Innovation</p>
+                    </div>
+                    <div className="p-4 rounded-2xl border border-slate-100 bg-slate-50/50">
+                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">Registration ID</p>
+                      <p className="text-xs font-black text-slate-700 font-mono">DARE-M25-W001</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4 leading-tight">AI in Finance</h3>
-              <p className="text-sm text-slate-600 mb-4">
-                Explore how Math + AI are used in finance simulations.
-              </p>
-              <ul className="space-y-3 text-slate-700 text-sm">
-                <li className="flex items-start">
-                  <span className="text-purple-500 mr-2 mt-1">•</span>
-                  <span>Option price calculation</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-purple-500 mr-2 mt-1">•</span>
-                  <span>Future price prediction</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-purple-500 mr-2 mt-1">•</span>
-                  <span>Portfolio risk analysis</span>
-                </li>
-              </ul>
             </div>
-          </article>
+          </div>
+
+          {/* Runner-up Card - 2nd Place */}
+          <div className="relative group perspective">
+            <div className="absolute -inset-1 bg-gradient-to-r from-slate-400 via-slate-300 to-slate-500 rounded-[3.5rem] blur opacity-10 group-hover:opacity-30 transition duration-1000"></div>
+            <div className="relative overflow-hidden rounded-[3.2rem] bg-white border border-slate-100 shadow-[0_30px_70px_rgba(0,0,0,0.05)] transition-all duration-500 group-hover:-translate-y-2">
+              <div className="h-32 bg-gradient-to-br from-slate-600 via-slate-500 to-slate-700 relative flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20cx%3D%223%22%20cy%3D%223%22%20r%3D%223%22/%3E%3C/g%3E%3C/svg%3E')] mt-4 opacity-30"></div>
+                <div className="relative px-8 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-black text-xs uppercase tracking-[0.3em] flex items-center gap-2">
+                  🥈 Silver Status Achievers
+                </div>
+              </div>
+
+              <div className="p-10 md:p-12 -mt-6 bg-white rounded-t-[3rem] relative z-10">
+                <div className="flex justify-between items-start mb-10">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-50 text-slate-600 text-[10px] font-black uppercase tracking-widest border border-slate-100">
+                      RANK 02
+                    </div>
+                    <h3 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">Prasedha V</h3>
+                    <p className="text-sm font-bold text-slate-500 uppercase tracking-tight flex items-center gap-2 italic">
+                      <i className="fas fa-university text-slate-400"></i> Sri Ramanas College of Arts & Sciences
+                    </p>
+                  </div>
+                  <div className="h-24 w-24 rounded-full bg-slate-50 border-4 border-slate-100 flex items-center justify-center">
+                    <i className="fas fa-medal text-4xl text-slate-400"></i>
+                  </div>
+                </div>
+
+                <div className="space-y-8">
+                  <div className="p-10 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-100 relative group/silver">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-2">
+                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">Final Result</p>
+                        <h4 className="text-5xl font-black text-slate-900 tracking-tighter italic">8.5 <span className="text-xl text-slate-300 font-bold not-italic">/ 10</span></h4>
+                      </div>
+                      <div className="h-16 w-16 rounded-3xl bg-white shadow-xl flex items-center justify-center border border-slate-100 group-hover/silver:rotate-12 transition-transform duration-500">
+                        <i className="fas fa-chart-line text-2xl text-slate-400"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-4 rounded-2xl border border-slate-50 bg-slate-50/30">
+                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">Competition</p>
+                      <p className="text-xs font-black text-slate-700">Math + AI Innovation</p>
+                    </div>
+                    <div className="p-4 rounded-2xl border border-slate-50 bg-slate-50/30">
+                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">Registration ID</p>
+                      <p className="text-xs font-black text-slate-700 font-mono">DARE-M25-W002</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
+
+      {/* Program Highlights (Competition Categories) */}
+      <section className="mx-auto max-w-6xl px-4 py-16 lg:py-20 border-t border-slate-100">
+        <header className="mb-12 text-center">
+          <h2 className="text-2xl font-bold text-slate-800 tracking-tight flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-slate-200"></span>
+            COMPETITION CATEGORIES
+            <span className="h-px w-8 bg-slate-200"></span>
+          </h2>
+        </header>
+
+        <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+          {[
+            { title: "Math + AI = Innovation", icon: "fa-lightbulb", color: "blue", desc: "Predict exam marks, construction material estimation, and AI Timetable makers." },
+            { title: "Applied Maths + AI", icon: "fa-briefcase", color: "emerald", desc: "Transport cost reduction, investment mix optimization, and energy usage prediction." },
+            { title: "AI in Finance", icon: "fa-chart-line", color: "purple", desc: "Option price calculation, future price prediction, and portfolio risk analysis." }
+          ].map((cat, i) => (
+            <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+              <div className={`h-10 w-10 rounded-xl bg-${cat.color}-50 text-${cat.color}-600 flex items-center justify-center mb-4`}>
+                <i className={`fa ${cat.icon}`}></i>
+              </div>
+              <h3 className="font-bold text-slate-900 mb-2">{cat.title}</h3>
+              <p className="text-xs text-slate-500 leading-relaxed">{cat.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
 
       {/* Project Upload CTA Section */}
       <section className="mx-auto max-w-4xl px-4 pb-16 lg:pb-20">

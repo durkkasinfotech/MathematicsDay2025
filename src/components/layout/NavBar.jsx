@@ -1,13 +1,12 @@
 import { useState } from 'react';
 
 const menuItems = [
-  { label: 'Home', href: 'https://darecentre.in/' },
-  { label: 'About', href: 'https://darecentre.in/about.html' },
-  { label: 'Our Divisions', href: 'https://darecentre.in/division.html' },
-  { label: 'Courses', href: 'https://darecentre.in/courses.html' },
-  { label: 'Edukoot', href: 'https://darecentre.in/edukoot.html' },
-  { label: 'Events', href: 'https://darecentre.in/event.html' },
-  { label: 'Contact', href: 'https://darecentre.in/contact.html' },
+  { label: 'Home', href: 'https://darecentre.in' },
+  { label: 'About', href: 'https://darecentre.in/about' },
+  { label: 'Our Divisions', href: 'https://event.darecentre.in/divisions' },
+  { label: 'Edukoot', href: 'https://event.darecentre.in/edukoot' },
+  { label: 'Events', href: 'https://event.darecentre.in/events' },
+  { label: 'Contact', href: 'https://event.darecentre.in/contacts' },
 ];
 
 const NavBar = () => {
@@ -23,9 +22,9 @@ const NavBar = () => {
       </div>
       <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:py-4 lg:px-0">
         <a href="https://darecentre.in/" className="flex items-center gap-2 sm:gap-3" onClick={() => setIsOpen(false)}>
-          <img 
-            src="/assets/img/dare1.png" 
-            alt="Dare Centre" 
+          <img
+            src="/assets/img/dare1.png"
+            alt="Dare Centre"
             className="h-12 w-auto sm:h-16"
             onError={(e) => {
               e.target.onerror = null;
@@ -43,9 +42,8 @@ const NavBar = () => {
           <i className={`fa ${isOpen ? 'fa-times' : 'fa-bars'} text-lg`} aria-hidden="true" />
         </button>
         <div
-          className={`absolute left-0 right-0 top-full z-50 origin-top bg-white px-4 pb-4 pt-2 shadow-lg transition-all duration-200 lg:static lg:block lg:w-auto lg:translate-y-0 lg:bg-transparent lg:p-0 lg:shadow-none ${
-            isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none lg:scale-y-100 lg:opacity-100 lg:pointer-events-auto'
-          }`}
+          className={`absolute left-0 right-0 top-full z-50 origin-top bg-white px-4 pb-4 pt-2 shadow-lg transition-all duration-200 lg:static lg:block lg:w-auto lg:translate-y-0 lg:bg-transparent lg:p-0 lg:shadow-none ${isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none lg:scale-y-100 lg:opacity-100 lg:pointer-events-auto'
+            }`}
         >
           <ul className="flex flex-col gap-3 sm:gap-4 lg:flex-row lg:items-center lg:gap-6">
             {menuItems.map((item) => (
@@ -62,9 +60,9 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="hidden lg:flex">
-          <img 
-            src="/assets/img/aicraaa.jpg" 
-            alt="AICRA" 
+          <img
+            src="/assets/img/aicraaa.jpg"
+            alt="AICRA"
             className="h-16 w-auto rounded"
             onError={(e) => {
               e.target.style.display = 'none';

@@ -13,22 +13,17 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="https://darecentre.in/" className="text-gray-400 hover:text-white transition">
+                <a href="https://darecentre.in" className="text-gray-400 hover:text-white transition">
                   Home
                 </a>
               </li>
               <li>
-                <a href="https://darecentre.in/about.html" className="text-gray-400 hover:text-white transition">
+                <a href="https://darecentre.in/about" className="text-gray-400 hover:text-white transition">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="https://darecentre.in/courses.html" className="text-gray-400 hover:text-white transition">
-                  Courses
-                </a>
-              </li>
-              <li>
-                <a href="https://darecentre.in/contact.html" className="text-gray-400 hover:text-white transition">
+                <a href="https://event.darecentre.in/contacts" className="text-gray-400 hover:text-white transition">
                   Contact
                 </a>
               </li>
@@ -40,7 +35,7 @@ const Footer = () => {
               Visit our website for contact information and inquiries.
             </p>
             <a
-              href="https://darecentre.in/contact.html"
+              href="https://event.darecentre.in/contacts"
               className="inline-block mt-4 text-primary-400 hover:text-primary-300 transition text-sm"
             >
               Get in Touch →
