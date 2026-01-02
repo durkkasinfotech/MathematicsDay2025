@@ -23,7 +23,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://event.darecentre.in/contacts" className="text-gray-400 hover:text-white transition">
+                <a href="https://darecentre.in/contact" className="text-gray-400 hover:text-white transition">
                   Contact
                 </a>
               </li>
@@ -35,7 +35,7 @@ const Footer = () => {
               Visit our website for contact information and inquiries.
             </p>
             <a
-              href="https://event.darecentre.in/contacts"
+              href="https://darecentre.in/contact"
               className="inline-block mt-4 text-primary-400 hover:text-primary-300 transition text-sm"
             >
               Get in Touch →

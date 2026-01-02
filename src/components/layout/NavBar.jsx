@@ -3,10 +3,10 @@ import { useState } from 'react';
 const menuItems = [
   { label: 'Home', href: 'https://darecentre.in' },
   { label: 'About', href: 'https://darecentre.in/about' },
-  { label: 'Our Divisions', href: 'https://event.darecentre.in/divisions' },
-  { label: 'Edukoot', href: 'https://event.darecentre.in/edukoot' },
-  { label: 'Events', href: 'https://event.darecentre.in/events' },
-  { label: 'Contact', href: 'https://event.darecentre.in/contacts' },
+  { label: 'Our Divisions', href: 'https://darecentre.in/divisions' },
+  { label: 'Edukoot', href: 'https://darecentre.in/edukoot' },
+  { label: 'Events', href: 'https://event.darecentre.in/' },
+  { label: 'Contact', href: 'https://darecentre.in/contact' },
 ];
 
 const NavBar = () => {
