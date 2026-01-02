@@ -48,7 +48,11 @@ const ViruthaiPongalAdmin = () => {
     const filteredRegistrations = registrations.filter(reg =>
         reg.full_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         reg.email_id?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        reg.college_name?.toLowerCase().includes(searchTerm.toLowerCase())
+        reg.institute_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        reg.category?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        reg.standard?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        reg.degree?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        reg.major?.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     const filteredSubmissions = submissions.filter(sub =>
@@ -127,14 +131,16 @@ const ViruthaiPongalAdmin = () => {
                                     <tr>
                                         <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">ID</th>
                                         <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Candidate</th>
-                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">School / College</th>
+                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Category / Level</th>
+                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Institute</th>
                                         <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Contact</th>
                                         <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Date</th>
                                         <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Status</th>
                                     </tr>
                                 ) : (
                                     <tr>
-                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Email</th>
+                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Candidate</th>
+                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Institute</th>
                                         <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Video Link</th>
                                         <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Instagram Link</th>
                                         <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Submitted At</th>
@@ -167,7 +173,13 @@ const ViruthaiPongalAdmin = () => {
                                                         <div className="font-bold text-slate-900">{item.full_name}</div>
                                                         <div className="text-xs text-slate-500">{item.email_id}</div>
                                                     </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 font-medium">{item.college_name}</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="text-sm font-bold text-slate-900">{item.category}</div>
+                                                        <div className="text-xs text-slate-500">
+                                                            {item.category === 'School' ? item.standard : `${item.degree} - ${item.major}`}
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 font-medium">{item.institute_name}</td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 font-medium">{item.contact_number}</td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-400">
                                                         {new Date(item.registration_date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
@@ -186,7 +198,15 @@ const ViruthaiPongalAdmin = () => {
                                                 </>
                                             ) : (
                                                 <>
-                                                    <td className="px-6 py-4 whitespace-nowrap font-bold text-slate-900 text-sm">{item.email_id}</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        <div className="font-bold text-slate-900">
+                                                            {registrations.find(r => r.email_id === item.email_id)?.full_name || 'Unknown'}
+                                                        </div>
+                                                        <div className="text-xs text-slate-500">{item.email_id}</div>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600 font-medium">
+                                                        {registrations.find(r => r.email_id === item.email_id)?.institute_name || 'N/A'}
+                                                    </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
                                                         <a
                                                             href={item.drive_link}
@@ -226,7 +246,7 @@ const ViruthaiPongalAdmin = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

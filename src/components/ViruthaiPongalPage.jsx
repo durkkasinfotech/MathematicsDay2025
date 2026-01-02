@@ -200,49 +200,53 @@ const ViruthaiPongalPage = () => {
     return (
         <div className="relative bg-white min-h-screen font-sans selection:bg-indigo-100 selection:text-indigo-900">
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-[#0B1121] via-[#0F172A] to-[#1E293B] text-white py-16 lg:py-28">
+            <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white py-16 lg:py-28">
                 {/* Advanced Background Elements */}
-                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[150px] -mr-64 -mt-64 animate-pulse pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[130px] -ml-32 -mb-32 pointer-events-none" />
+                <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_top_right,_#1e40af33,_transparent_70%)] pointer-events-none" />
+                <div className="absolute inset-0 opacity-20 bg-[linear-gradient(135deg,_transparent_30%,_#3b82f611_50%,_transparent_70%)] pointer-events-none" />
 
                 {/* SVG Mesh Pattern */}
-                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}></div>
+                <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}></div>
 
-                <div className="relative mx-auto max-w-7xl px-4">
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
+                <div className="relative mx-auto max-w-6xl px-4 lg:px-8">
+                    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                         {/* Left Side: Content */}
                         <div className="flex-1 space-y-10 text-center lg:text-left">
                             <div className="space-y-6">
-                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/20 backdrop-blur-md animate-bounce-slow">
-                                    <span className="flex h-2 w-2 rounded-full bg-blue-400 animate-ping"></span>
-                                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-200">Registration Now Open</span>
-                                </div>
+                                <p className="text-sm font-bold uppercase tracking-[0.3em] text-blue-200 drop-shadow-sm">
+                                    District Level Event
+                                </p>
 
-                                <h1 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter text-white">
-                                    Viruthai <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-blue-200 bg-clip-text text-transparent">Pongal</span>
-                                    <br />
-                                    <span className="text-3xl md:text-5xl font-bold opacity-90 block mt-2 text-white/80">AI Video Contest 2026</span>
+                                <h1 className="text-4xl md:text-7xl font-black leading-tight tracking-tight text-white animate-in fade-in slide-in-from-left duration-700">
+                                    <span className="block bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                                        Viruthai Pongal 2026
+                                    </span>
+                                    <span className="block text-2xl md:text-3xl font-bold text-blue-100 mt-3 tracking-wide opacity-90">
+                                        AI Video Creation Contest
+                                    </span>
                                 </h1>
 
-                                <p className="mx-auto lg:mx-0 max-w-xl text-lg md:text-xl text-blue-100/70 leading-relaxed font-medium">
+                                <p className="mx-auto lg:mx-0 max-w-xl text-base md:text-lg text-white leading-relaxed font-medium">
                                     Exclusively for School & College students of <br className="hidden md:block" />
-                                    <span className="text-white font-bold underline decoration-blue-500/50 underline-offset-4">Virudhunagar District</span>. Witness the future.
+                                    <span className="text-white font-bold underline decoration-blue-500 underline-offset-4">Virudhunagar District</span>. Showcase your digital innovation.
                                 </p>
                             </div>
 
-                            <div className="grid gap-4 sm:grid-cols-3 max-w-2xl mx-auto lg:mx-0">
+                            <div className="grid gap-4 sm:grid-cols-3 max-w-xl mx-auto lg:mx-0">
                                 {[
-                                    { label: 'Registration', val: 'Jan 2 – 13', icon: 'fa-calendar-alt' },
-                                    { label: 'Result Update', val: 'Jan 14, 2026', icon: 'fa-trophy' },
-                                    { label: 'Domain', val: 'AI Generation', icon: 'fa-microchip' }
+                                    { label: 'Registration', val: 'Jan 2 – 13', status: 'Open', color: 'emerald', dot: true },
+                                    { label: 'Submission', val: 'Jan 2 – 13', status: 'Live', color: 'blue', dot: true },
+                                    { label: 'Result Update', val: 'Jan 14, 2026', status: 'Upcoming', color: 'amber', dot: true }
                                 ].map((item, i) => (
-                                    <div key={i} className="group relative rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-5 transition-all hover:bg-white/10 hover:border-white/20">
-                                        <div className="absolute top-4 right-4 text-blue-400/20 group-hover:text-blue-400/40 transition-colors">
-                                            <i className={`fas ${item.icon} text-xl`}></i>
-                                        </div>
-                                        <p className="text-[10px] font-black uppercase tracking-widest text-blue-300/60 mb-2">{item.label}</p>
-                                        <p className="text-lg font-black text-white leading-none mb-1">{item.val}</p>
-                                        <div className="h-0.5 w-8 bg-blue-500/30 group-hover:w-full transition-all duration-500"></div>
+                                    <div key={i} className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-5 py-4 shadow-2xl transition-all hover:bg-white/15">
+                                        <p className="text-[10px] font-black uppercase tracking-wider text-blue-100 mb-1 flex items-center justify-center lg:justify-start">
+                                            {item.label}
+                                            {item.dot && (
+                                                <span className={`ml-2 inline-block h-2 w-2 rounded-full bg-${item.color}-400 animate-pulse`}></span>
+                                            )}
+                                        </p>
+                                        <p className="text-base font-bold text-white">{item.status}</p>
+                                        <p className="text-[11px] text-white font-medium">{item.val}</p>
                                     </div>
                                 ))}
                             </div>

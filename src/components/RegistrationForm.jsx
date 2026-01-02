@@ -239,7 +239,7 @@ const RegistrationForm = () => {
                 </span>
               </h1>
             </div>
-            <p className="max-w-xl text-base md:text-lg text-blue-50 leading-relaxed drop-shadow-sm">
+            <p className="max-w-xl text-base md:text-lg text-white leading-relaxed drop-shadow-sm">
               December 22, 2025
               <br />
               Thank you to everyone who participated in this celebration of innovation and mathematics.
@@ -535,84 +535,90 @@ const RegistrationForm = () => {
       </section>
 
       {/* Winners Circle / Hall of Fame Section */}
-      <section className="mx-auto max-w-7xl px-4 py-16 lg:py-24 relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-200/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-200/20 rounded-full blur-[100px] -z-10"></div>
+      <section className="mx-auto max-w-7xl px-4 py-20 lg:py-32 relative overflow-hidden bg-white/40">
+        {/* Advanced Decorative Elements */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-100/30 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-[100px] -z-10"></div>
 
-        <header className="mb-20 text-center space-y-6 relative">
-          <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-slate-900 text-white text-xs font-black uppercase tracking-[0.4em] shadow-2xl shadow-slate-900/20">
-            <i className="fas fa-star text-amber-400"></i> Grand Finale Results <i className="fas fa-star text-amber-400"></i>
+        <header className="mb-24 text-center relative">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] mb-6 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
+            Grand Finale Achievers
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none">
-            Hall of <br className="md:hidden" />
+          <h2 className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter uppercase leading-[0.85] mb-4">
+            Hall of<br />
             <span className="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 bg-clip-text text-transparent">EXCELLENCE</span>
           </h2>
-          <div className="h-1.5 w-32 bg-amber-500 mx-auto rounded-full"></div>
+          <p className="text-slate-600 font-medium text-sm md:text-base max-w-lg mx-auto tracking-wide">
+            Celebrating the brilliant minds who pushed the boundaries of <br className="hidden md:block" />
+            Mathematics and Artificial Intelligence.
+          </p>
         </header>
 
-        <div className="grid gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
+        <div className="grid gap-10 lg:grid-cols-2 max-w-6xl mx-auto">
           {/* Winner Card - 1st Place */}
-          <div className="relative group perspective">
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 rounded-[3.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-            <div className="relative overflow-hidden rounded-[3.2rem] bg-white border border-amber-100 shadow-[0_30px_70px_rgba(0,0,0,0.08)] transition-all duration-500 group-hover:-translate-y-2">
-              {/* Card Header Background */}
-              <div className="h-32 bg-gradient-to-br from-amber-500 via-yellow-400 to-amber-600 relative flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_50%,_rgba(255,255,255,0.8),_transparent_50%)]"></div>
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20cx%3D%223%22%20cy%3D%223%22%20r%3D%223%22/%3E%3C/g%3E%3C/svg%3E')] mt-4 opacity-40"></div>
-                <div className="relative px-8 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-black text-xs uppercase tracking-[0.3em] flex items-center gap-2">
-                  🏆 Championship Winners
-                </div>
-              </div>
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-br from-amber-400 via-yellow-200 to-amber-600 rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-700"></div>
+            <div className="relative bg-white rounded-[2.8rem] border border-amber-100/50 shadow-2xl overflow-hidden transition-all duration-500 group-hover:-translate-y-3">
+              {/* Card Accent */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
 
-              <div className="p-10 md:p-12 -mt-6 bg-white rounded-t-[3rem] relative z-10">
-                <div className="flex justify-between items-start mb-10">
+              <div className="p-8 md:p-12">
+                <div className="flex justify-between items-start mb-12">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-50 text-amber-600 text-[10px] font-black uppercase tracking-widest border border-amber-100">
-                      RANK 01
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-600 text-[10px] font-black uppercase tracking-widest border border-amber-100/50 shadow-inner">
+                      🏆 First Place
                     </div>
-                    <h3 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">P. Vimal</h3>
-                    <p className="text-sm font-bold text-slate-500 uppercase tracking-tight flex items-center gap-2 italic">
-                      <i className="fas fa-university text-amber-500"></i> Sree Sowdambika College of Engineering
+                    <h3 className="text-5xl font-black text-slate-900 tracking-tighter">P. Vimal</h3>
+                    <p className="text-xs font-bold text-slate-700 uppercase tracking-widest flex items-center gap-2">
+                      <i className="fas fa-university text-amber-600 text-sm"></i>
+                      Sree Sowdambika Engineering
                     </p>
                   </div>
-                  <div className="h-24 w-24 rounded-full bg-gradient-to-br from-amber-50 to-white border-4 border-amber-100 shadow-xl flex items-center justify-center animate-pulse">
-                    <i className="fas fa-trophy text-4xl text-amber-500"></i>
+                  <div className="relative">
+                    <div className="h-20 w-20 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center shadow-xl rotate-3 group-hover:rotate-6 transition-transform">
+                      <i className="fas fa-trophy text-3xl text-white"></i>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-white shadow-lg flex items-center justify-center font-black text-slate-900 text-[10px] border border-amber-100">
+                      #01
+                    </div>
                   </div>
                 </div>
 
-                <div className="space-y-8">
-                  <div className="p-8 rounded-[2rem] bg-slate-900 relative overflow-hidden group/score">
-                    <div className="absolute top-0 right-0 p-4 opacity-10">
-                      <i className="fas fa-chart-pie text-6xl text-white"></i>
-                    </div>
-                    <p className="text-[10px] font-black text-amber-400 uppercase tracking-[0.4em] mb-6">Evaluation Scoreboard</p>
-                    <div className="grid grid-cols-5 gap-4 mb-8">
-                      {[2, 2, 2, 2, 1.5].map((val, i) => (
-                        <div key={i} className="space-y-2">
-                          <div className="bg-white/10 text-white rounded-xl py-3 text-center font-black border border-white/10 group-hover/score:border-amber-500/50 transition-colors">
-                            {val}
+                <div className="space-y-6">
+                  <div className="bg-slate-50 border border-slate-200 rounded-3xl p-7 relative overflow-hidden">
+                    <div className="absolute right-0 top-0 p-4 opacity-[0.05] text-6xl font-black text-blue-600 italic">Score</div>
+                    <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-6">Expert Evaluation Score</p>
+
+                    <div className="flex items-end justify-between">
+                      <div className="flex gap-1.5">
+                        {[2, 2, 2, 2, 1.5].map((s, i) => (
+                          <div key={i} className="flex flex-col items-center gap-2">
+                            <div className="w-10 bg-white border border-slate-300 rounded-xl py-2.5 text-center text-blue-600 font-bold text-sm shadow-sm group-hover:border-blue-500 transition-colors">
+                              {s}
+                            </div>
+                            <span className="text-[8px] font-black text-slate-700">C{i + 1}</span>
                           </div>
-                          <p className="text-[8px] text-center font-black text-slate-500 uppercase">CRT {i + 1}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex items-center justify-between pt-6 border-t border-white/10">
-                      <span className="text-xs font-black text-white uppercase tracking-widest">Total Performance</span>
+                        ))}
+                      </div>
                       <div className="text-right">
-                        <span className="text-4xl font-black text-amber-400 italic tracking-tighter">9.5 <span className="text-xl opacity-50 font-bold">/ 10</span></span>
+                        <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">Total</p>
+                        <div className="text-5xl font-black text-slate-900 tracking-tighter">
+                          9.5<span className="text-lg text-blue-600 font-bold ml-1">/10</span>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 rounded-2xl border border-slate-100 bg-slate-50/50">
-                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">Competition</p>
-                      <p className="text-xs font-black text-slate-700">Math + AI Innovation</p>
+                  <div className="flex items-center gap-4">
+                    <div className="flex-1 p-4 rounded-2xl bg-white border border-slate-200 text-center">
+                      <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">Domain</p>
+                      <p className="text-[11px] font-bold text-slate-800">Math + AI Innovation</p>
                     </div>
-                    <div className="p-4 rounded-2xl border border-slate-100 bg-slate-50/50">
-                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">Registration ID</p>
-                      <p className="text-xs font-black text-slate-700 font-mono">DARE-M25-W001</p>
+                    <div className="flex-1 p-4 rounded-2xl bg-white border border-slate-200 text-center">
+                      <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">Entry ID</p>
+                      <p className="text-[11px] font-mono font-bold text-slate-800">DARE-M25-001</p>
                     </div>
                   </div>
                 </div>
@@ -621,53 +627,60 @@ const RegistrationForm = () => {
           </div>
 
           {/* Runner-up Card - 2nd Place */}
-          <div className="relative group perspective">
-            <div className="absolute -inset-1 bg-gradient-to-r from-slate-400 via-slate-300 to-slate-500 rounded-[3.5rem] blur opacity-10 group-hover:opacity-30 transition duration-1000"></div>
-            <div className="relative overflow-hidden rounded-[3.2rem] bg-white border border-slate-100 shadow-[0_30px_70px_rgba(0,0,0,0.05)] transition-all duration-500 group-hover:-translate-y-2">
-              <div className="h-32 bg-gradient-to-br from-slate-600 via-slate-500 to-slate-700 relative flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20cx%3D%223%22%20cy%3D%223%22%20r%3D%223%22/%3E%3C/g%3E%3C/svg%3E')] mt-4 opacity-30"></div>
-                <div className="relative px-8 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-black text-xs uppercase tracking-[0.3em] flex items-center gap-2">
-                  🥈 Silver Status Achievers
-                </div>
-              </div>
-
-              <div className="p-10 md:p-12 -mt-6 bg-white rounded-t-[3rem] relative z-10">
-                <div className="flex justify-between items-start mb-10">
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-br from-slate-300 via-blue-100 to-slate-400 rounded-[3rem] blur opacity-10 group-hover:opacity-30 transition duration-700"></div>
+            <div className="relative bg-white rounded-[2.8rem] border border-slate-100 shadow-xl overflow-hidden transition-all duration-500 group-hover:-translate-y-3">
+              <div className="p-8 md:p-12">
+                <div className="flex justify-between items-start mb-12">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-50 text-slate-600 text-[10px] font-black uppercase tracking-widest border border-slate-100">
-                      RANK 02
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-widest border border-slate-200/50">
+                      🥈 Runner Up
                     </div>
-                    <h3 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">Prasedha V</h3>
-                    <p className="text-sm font-bold text-slate-500 uppercase tracking-tight flex items-center gap-2 italic">
-                      <i className="fas fa-university text-slate-400"></i> Sri Ramanas College of Arts & Sciences
+                    <h3 className="text-5xl font-black text-slate-900 tracking-tighter">Prasedha V</h3>
+                    <p className="text-xs font-bold text-slate-700 uppercase tracking-widest flex items-center gap-2">
+                      <i className="fas fa-university text-slate-500 text-sm"></i>
+                      Sri Ramanas Arts & Science
                     </p>
                   </div>
-                  <div className="h-24 w-24 rounded-full bg-slate-50 border-4 border-slate-100 flex items-center justify-center">
-                    <i className="fas fa-medal text-4xl text-slate-400"></i>
+                  <div className="relative">
+                    <div className="h-20 w-20 rounded-2xl bg-slate-100 flex items-center justify-center shadow-lg -rotate-3 group-hover:-rotate-6 transition-transform border border-slate-200">
+                      <i className="fas fa-medal text-3xl text-slate-400"></i>
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-white shadow-lg flex items-center justify-center font-black text-slate-900 text-[10px] border border-slate-100">
+                      #02
+                    </div>
                   </div>
                 </div>
 
-                <div className="space-y-8">
-                  <div className="p-10 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-100 relative group/silver">
-                    <div className="flex items-center justify-between">
-                      <div className="space-y-2">
-                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">Final Result</p>
-                        <h4 className="text-5xl font-black text-slate-900 tracking-tighter italic">8.5 <span className="text-xl text-slate-300 font-bold not-italic">/ 10</span></h4>
+                <div className="space-y-6">
+                  <div className="bg-slate-50/50 border border-slate-200 rounded-3xl p-7 relative">
+                    <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-6 text-center">Final Result Sheet</p>
+                    <div className="flex items-center justify-around mb-2">
+                      <div className="text-center">
+                        <p className="text-4xl font-black text-blue-600 tracking-tighter">8.5</p>
+                        <p className="text-[8px] font-black text-slate-700 uppercase tracking-widest mt-1">Final Score</p>
                       </div>
-                      <div className="h-16 w-16 rounded-3xl bg-white shadow-xl flex items-center justify-center border border-slate-100 group-hover/silver:rotate-12 transition-transform duration-500">
-                        <i className="fas fa-chart-line text-2xl text-slate-400"></i>
+                      <div className="h-10 w-px bg-slate-300"></div>
+                      <div className="text-center">
+                        <p className="text-lg font-black text-slate-900">100%</p>
+                        <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mt-1">Authenticity</p>
+                      </div>
+                      <div className="h-10 w-px bg-slate-300"></div>
+                      <div className="text-center">
+                        <p className="text-lg font-black text-slate-900">A+</p>
+                        <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mt-1">Grade</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 rounded-2xl border border-slate-50 bg-slate-50/30">
-                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">Competition</p>
-                      <p className="text-xs font-black text-slate-700">Math + AI Innovation</p>
+                  <div className="grid grid-cols-2 gap-4 mt-8">
+                    <div className="p-4 rounded-2xl border border-slate-200 bg-white shadow-sm text-center">
+                      <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mb-1">Competition</p>
+                      <p className="text-[11px] font-bold text-slate-800">Math + AI Innovation</p>
                     </div>
-                    <div className="p-4 rounded-2xl border border-slate-50 bg-slate-50/30">
-                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">Registration ID</p>
-                      <p className="text-xs font-black text-slate-700 font-mono">DARE-M25-W002</p>
+                    <div className="p-4 rounded-2xl border border-slate-200 bg-white shadow-sm text-center">
+                      <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mb-1">Entry ID</p>
+                      <p className="text-[11px] font-mono font-bold text-slate-800">DARE-M25-002</p>
                     </div>
                   </div>
                 </div>
