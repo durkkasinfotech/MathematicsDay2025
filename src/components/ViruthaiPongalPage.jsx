@@ -331,9 +331,13 @@ const ViruthaiPongalPage = () => {
                                                 </div>
                                                 <select required name="standard" value={registrationData.standard} onChange={handleRegisterChange} className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-11 pr-10 py-4 text-sm font-bold text-slate-800 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all appearance-none cursor-pointer">
                                                     <option value="" className="text-slate-400">Select Standard</option>
-                                                    {[...Array(12)].map((_, i) => (
-                                                        <option key={i} value={`${i + 1}th Std`}>{i + 1}th Standard</option>
-                                                    ))}
+                                                    {[...Array(12)].map((_, i) => {
+                                                        const num = i + 1;
+                                                        const suffix = num === 1 ? 'st' : num === 2 ? 'nd' : num === 3 ? 'rd' : 'th';
+                                                        return (
+                                                            <option key={i} value={`${num}${suffix} Std`}>{num}{suffix} Standard</option>
+                                                        );
+                                                    })}
                                                 </select>
                                                 <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-400 text-xs">
                                                     <i className="fas fa-chevron-down"></i>
