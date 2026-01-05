@@ -3,7 +3,43 @@ import { supabase } from '../utils/supabaseClient';
 
 const ViruthaiPongalPage = () => {
     useEffect(() => {
+        // Set page title
         document.title = 'Viruthai Pongal 2026 - Event Registration | Dare Centre';
+
+        // Set meta tags for WhatsApp and social media sharing
+        const setMetaTag = (property, content) => {
+            let element = document.querySelector(`meta[property="${property}"]`);
+            if (!element) {
+                element = document.createElement('meta');
+                element.setAttribute('property', property);
+                document.head.appendChild(element);
+            }
+            element.setAttribute('content', content);
+        };
+
+        const setMetaName = (name, content) => {
+            let element = document.querySelector(`meta[name="${name}"]`);
+            if (!element) {
+                element = document.createElement('meta');
+                element.setAttribute('name', name);
+                document.head.appendChild(element);
+            }
+            element.setAttribute('content', content);
+        };
+
+        // Open Graph tags for WhatsApp, Facebook, etc.
+        setMetaTag('og:title', 'Viruthai Pongal 2026 - Event Registration | Dare Centre');
+        setMetaTag('og:description', 'Register for Viruthai Pongal 2026 - AI Video Creation Competition. Celebrate Tamil culture with innovation!');
+        setMetaTag('og:url', 'https://event.darecentre.in/viruthaipongal2026');
+        setMetaTag('og:type', 'website');
+
+        // Twitter Card tags
+        setMetaName('twitter:card', 'summary_large_image');
+        setMetaName('twitter:title', 'Viruthai Pongal 2026 - Event Registration | Dare Centre');
+        setMetaName('twitter:description', 'Register for Viruthai Pongal 2026 - AI Video Creation Competition. Celebrate Tamil culture with innovation!');
+
+        // Standard meta description
+        setMetaName('description', 'Register for Viruthai Pongal 2026 - AI Video Creation Competition. Celebrate Tamil culture with innovation!');
     }, []);
     const [registrationData, setRegistrationData] = useState({
         fullName: '',
@@ -244,9 +280,9 @@ const ViruthaiPongalPage = () => {
 
                             <div className="grid grid-cols-3 gap-1.5 xs:gap-2 md:gap-4 max-w-xl mx-auto lg:mx-0 relative z-20">
                                 {[
-                                    { label: 'Registration', val: 'Jan 3–13', status: 'Open', borderClass: 'border-b-emerald-500', shadowClass: 'shadow-emerald-500/10', textClass: 'text-emerald-600' },
-                                    { label: 'Submission', val: 'Jan 3–13', status: 'Live', borderClass: 'border-b-blue-500', shadowClass: 'shadow-blue-500/10', textClass: 'text-blue-600' },
-                                    { label: 'Results', val: 'Jan 18', status: 'Upcoming', borderClass: 'border-b-amber-500', shadowClass: 'shadow-amber-500/10', textClass: 'text-amber-600' }
+                                    { label: 'Registration', val: 'Jan 3–18', status: 'Open', borderClass: 'border-b-emerald-500', shadowClass: 'shadow-emerald-500/10', textClass: 'text-emerald-600' },
+                                    { label: 'Submission', val: 'Jan 3–18', status: 'Live', borderClass: 'border-b-blue-500', shadowClass: 'shadow-blue-500/10', textClass: 'text-blue-600' },
+                                    { label: 'Results', val: 'Jan 19', status: 'Upcoming', borderClass: 'border-b-amber-500', shadowClass: 'shadow-amber-500/10', textClass: 'text-amber-600' }
                                 ].map((item, i) => (
                                     <div key={i} className={`group rounded-xl md:rounded-2xl bg-white border border-slate-100 border-b-4 ${item.borderClass} p-1.5 xs:p-2 md:p-5 shadow-lg ${item.shadowClass} transition-all hover:-translate-y-1 hover:shadow-xl flex flex-col justify-center min-h-[75px] md:min-h-0`}>
                                         <p className={`text-[8px] xs:text-[10px] font-black uppercase tracking-tight md:tracking-wider ${item.textClass} mb-0.5 md:mb-2 flex items-center justify-center lg:justify-start`}>
