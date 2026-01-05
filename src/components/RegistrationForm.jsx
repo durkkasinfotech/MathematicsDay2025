@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../utils/supabaseClient';
 
 const RegistrationForm = () => {
+  useEffect(() => {
+    document.title = 'Mathematics Day 2025 - Event Registration | Dare Centre';
+  }, []);
   const [formData, setFormData] = useState({
     fullName: '',
     dateOfBirth: '',

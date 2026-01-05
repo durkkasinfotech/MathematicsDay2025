@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../utils/supabaseClient';
 
 const ViruthaiPongalPage = () => {
+    useEffect(() => {
+        document.title = 'Viruthai Pongal 2026 - Event Registration | Dare Centre';
+    }, []);
     const [registrationData, setRegistrationData] = useState({
         fullName: '',
         category: 'School', // 'School' or 'College'
@@ -280,7 +283,7 @@ const ViruthaiPongalPage = () => {
                             <div id="registration-form" className="relative bg-white rounded-[2rem] md:rounded-[2.2rem] overflow-hidden shadow-2xl p-5 md:p-10 border border-slate-100">
                                 <div className="mb-6 md:mb-8 flex items-center justify-between">
                                     <div className="space-y-1">
-                                        <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Student Registration</h3>
+                                        <h3 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">Event Registration</h3>
                                         <div className="h-1.5 w-12 bg-blue-600 rounded-full"></div>
                                     </div>
                                     <div className="h-12 w-12 bg-blue-50 rounded-2xl flex items-center justify-center border border-blue-100">
