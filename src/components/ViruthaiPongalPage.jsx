@@ -771,6 +771,15 @@ const ViruthaiPongalPage = () => {
                 </div>
             </section>
 
+            {/* Assistance Section */}
+            <div className="py-10 bg-slate-50 text-center border-t border-slate-200">
+                <p className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-3">For Assistance</p>
+                <a href="tel:+917812876787" className="inline-flex items-center gap-3 text-xl md:text-2xl font-black text-slate-900 hover:text-blue-600 transition-colors">
+                    <i className="fas fa-phone-alt text-blue-600 text-lg"></i>
+                    <span>+91 78128 76787</span>
+                </a>
+            </div>
+
             {/* Success Modal */}
             {showSuccessModal && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
