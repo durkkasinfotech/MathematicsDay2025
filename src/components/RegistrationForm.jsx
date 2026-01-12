@@ -537,159 +537,152 @@ const RegistrationForm = () => {
         </div>
       </section>
 
+
       {/* Winners Circle / Hall of Fame Section */}
       <section className="mx-auto max-w-7xl px-4 py-20 lg:py-32 relative overflow-hidden bg-white/40">
-        {/* Advanced Decorative Elements */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-100/30 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-[100px] -z-10"></div>
 
-        <header className="mb-24 text-center relative">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] mb-6 shadow-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
-            Grand Finale Achievers
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
-          </div>
-          <h2 className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter uppercase leading-[0.85] mb-4">
-            Hall of<br />
-            <span className="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 bg-clip-text text-transparent">EXCELLENCE</span>
-          </h2>
-          <p className="text-slate-600 font-medium text-sm md:text-base max-w-lg mx-auto tracking-wide">
-            Celebrating the brilliant minds who pushed the boundaries of <br className="hidden md:block" />
-            Mathematics and Artificial Intelligence.
-          </p>
-        </header>
+        <div className="grid gap-10 lg:grid-cols-2 max-w-6xl mx-auto items-stretch">
 
-        <div className="grid gap-10 lg:grid-cols-2 max-w-6xl mx-auto">
-          {/* Winner Card - 1st Place */}
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-br from-amber-400 via-yellow-200 to-amber-600 rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-700"></div>
-            <div className="relative bg-white rounded-[2.8rem] border border-amber-100/50 shadow-2xl overflow-hidden transition-all duration-500 group-hover:-translate-y-3">
-              {/* Card Accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+          {/* ================= FIRST PLACE ================= */}
+          <div className="relative group h-full">
+            <div className="relative bg-white rounded-[2.8rem] border border-amber-100 shadow-2xl overflow-hidden
+                      flex flex-col h-full transition-all duration-500
+                      group-hover:-translate-y-2 group-hover:shadow-amber-200/50">
 
-              <div className="p-8 md:p-12">
-                <div className="flex justify-between items-start mb-12">
-                  <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-600 text-[10px] font-black uppercase tracking-widest border border-amber-100/50 shadow-inner">
-                      🏆 First Place
-                    </div>
-                    <h3 className="text-5xl font-black text-slate-900 tracking-tighter">P. Vimal</h3>
-                    <p className="text-xs font-bold text-slate-700 uppercase tracking-widest flex items-center gap-2">
-                      <i className="fas fa-university text-amber-600 text-sm"></i>
+              {/* CONTENT */}
+              <div className="p-8 md:p-12 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-10">
+
+                  {/* LEFT TEXT */}
+                  <div>
+                    <span className="inline-block px-4 py-1 rounded-full bg-amber-50 text-amber-600 text-xs font-black">
+                      🏆 FIRST PLACE
+                    </span>
+                    <h3 className="text-5xl font-black mt-4">P. Vimal</h3>
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-600">
                       Sree Sowdambika Engineering
                     </p>
                   </div>
+
+                  {/* SIMPLE WINNER BADGE */}
                   <div className="relative">
-                    <div className="h-20 w-20 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center shadow-xl rotate-3 group-hover:rotate-6 transition-transform">
-                      <i className="fas fa-trophy text-3xl text-white"></i>
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-300
+                              flex items-center justify-center shadow-lg
+                              transition-all duration-500
+                              group-hover:-translate-y-2 group-hover:rotate-6">
+                      <span className="text-white text-3xl">🏆</span>
                     </div>
-                    <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-white shadow-lg flex items-center justify-center font-black text-slate-900 text-[10px] border border-amber-100">
+
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-white
+                              flex items-center justify-center text-[10px] font-black
+                              shadow border border-amber-200">
                       #01
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-6">
-                  <div className="bg-slate-50 border border-slate-200 rounded-3xl p-7 relative overflow-hidden">
-                    <div className="absolute right-0 top-0 p-4 opacity-[0.05] text-6xl font-black text-blue-600 italic">Score</div>
-                    <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-6">Expert Evaluation Score</p>
-
-                    <div className="flex items-end justify-between">
-                      <div className="flex gap-1.5">
-                        {[2, 2, 2, 2, 1.5].map((s, i) => (
-                          <div key={i} className="flex flex-col items-center gap-2">
-                            <div className="w-10 bg-white border border-slate-300 rounded-xl py-2.5 text-center text-blue-600 font-bold text-sm shadow-sm group-hover:border-blue-500 transition-colors">
-                              {s}
-                            </div>
-                            <span className="text-[8px] font-black text-slate-700">C{i + 1}</span>
+                {/* SCORE */}
+                <div className="bg-slate-50 p-6 rounded-2xl mt-auto">
+                  <p className="text-xs font-black text-blue-600 uppercase mb-4">
+                    Expert Evaluation Score
+                  </p>
+                  <div className="flex justify-between items-end">
+                    <div className="flex gap-2">
+                      {[2, 2, 2, 2, 1.5].map((s, i) => (
+                        <div key={i} className="text-center">
+                          <div className="w-10 py-2 rounded-xl bg-white border font-bold text-blue-600">
+                            {s}
                           </div>
-                        ))}
-                      </div>
-                      <div className="text-right">
-                        <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">Total</p>
-                        <div className="text-5xl font-black text-slate-900 tracking-tighter">
-                          9.5<span className="text-lg text-blue-600 font-bold ml-1">/10</span>
+                          <p className="text-[10px] font-bold">C{i + 1}</p>
                         </div>
-                      </div>
+                      ))}
                     </div>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="flex-1 p-4 rounded-2xl bg-white border border-slate-200 text-center">
-                      <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">Domain</p>
-                      <p className="text-[11px] font-bold text-slate-800">Math + AI Innovation</p>
-                    </div>
-                    <div className="flex-1 p-4 rounded-2xl bg-white border border-slate-200 text-center">
-                      <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">Entry ID</p>
-                      <p className="text-[11px] font-mono font-bold text-slate-800">DARE-M25-001</p>
+                    <div className="text-4xl font-black">
+                      9.5<span className="text-lg text-blue-600">/10</span>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* IMAGE */}
+              <div className="px-8 pb-10">
+                <img
+                  src="/assets/img/vimal.jpg"
+                  alt="P Vimal Project"
+                  className="w-full h-56 object-cover rounded-2xl shadow-lg border border-amber-200
+                       transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Runner-up Card - 2nd Place */}
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-br from-slate-300 via-blue-100 to-slate-400 rounded-[3rem] blur opacity-10 group-hover:opacity-30 transition duration-700"></div>
-            <div className="relative bg-white rounded-[2.8rem] border border-slate-100 shadow-xl overflow-hidden transition-all duration-500 group-hover:-translate-y-3">
-              <div className="p-8 md:p-12">
-                <div className="flex justify-between items-start mb-12">
-                  <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-widest border border-slate-200/50">
-                      🥈 Runner Up
-                    </div>
-                    <h3 className="text-5xl font-black text-slate-900 tracking-tighter">Prasedha V</h3>
-                    <p className="text-xs font-bold text-slate-700 uppercase tracking-widest flex items-center gap-2">
-                      <i className="fas fa-university text-slate-500 text-sm"></i>
+          {/* ================= RUNNER UP ================= */}
+          <div className="relative group h-full">
+            <div className="relative bg-white rounded-[2.8rem] border border-slate-200 shadow-xl overflow-hidden
+                      flex flex-col h-full transition-all duration-500
+                      group-hover:-translate-y-2 group-hover:shadow-slate-200/60">
+
+              {/* CONTENT */}
+              <div className="p-8 md:p-12 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-10">
+
+                  {/* LEFT TEXT */}
+                  <div>
+                    <span className="inline-block px-4 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-black">
+                      🥈 RUNNER UP
+                    </span>
+                    <h3 className="text-5xl font-black mt-4">Prasedha V</h3>
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-600">
                       Sri Ramanas Arts & Science
                     </p>
                   </div>
+
+                  {/* SIMPLE RUNNER BADGE */}
                   <div className="relative">
-                    <div className="h-20 w-20 rounded-2xl bg-slate-100 flex items-center justify-center shadow-lg -rotate-3 group-hover:-rotate-6 transition-transform border border-slate-200">
-                      <i className="fas fa-medal text-3xl text-slate-400"></i>
+                    <div className="w-20 h-20 rounded-2xl bg-slate-100
+                              flex items-center justify-center shadow-md
+                              transition-all duration-500
+                              group-hover:-translate-y-2 group-hover:-rotate-6">
+                      <span className="text-slate-500 text-3xl">🥈</span>
                     </div>
-                    <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-full bg-white shadow-lg flex items-center justify-center font-black text-slate-900 text-[10px] border border-slate-100">
+
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-white
+                              flex items-center justify-center text-[10px] font-black
+                              shadow border border-slate-200">
                       #02
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-6">
-                  <div className="bg-slate-50/50 border border-slate-200 rounded-3xl p-7 relative">
-                    <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-6 text-center">Final Result Sheet</p>
-                    <div className="flex items-center justify-around mb-2">
-                      <div className="text-center">
-                        <p className="text-4xl font-black text-blue-600 tracking-tighter">8.5</p>
-                        <p className="text-[8px] font-black text-slate-700 uppercase tracking-widest mt-1">Final Score</p>
-                      </div>
-                      <div className="h-10 w-px bg-slate-300"></div>
-                      <div className="text-center">
-                        <p className="text-lg font-black text-slate-900">100%</p>
-                        <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mt-1">Authenticity</p>
-                      </div>
-                      <div className="h-10 w-px bg-slate-300"></div>
-                      <div className="text-center">
-                        <p className="text-lg font-black text-slate-900">A+</p>
-                        <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mt-1">Grade</p>
-                      </div>
-                    </div>
+                {/* SCORE */}
+                <div className="bg-slate-50 p-6 rounded-2xl flex justify-around text-center mt-auto">
+                  <div>
+                    <p className="text-4xl font-black text-blue-600">8.5</p>
+                    <p className="text-xs font-bold uppercase">Score</p>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-4 mt-8">
-                    <div className="p-4 rounded-2xl border border-slate-200 bg-white shadow-sm text-center">
-                      <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mb-1">Competition</p>
-                      <p className="text-[11px] font-bold text-slate-800">Math + AI Innovation</p>
-                    </div>
-                    <div className="p-4 rounded-2xl border border-slate-200 bg-white shadow-sm text-center">
-                      <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mb-1">Entry ID</p>
-                      <p className="text-[11px] font-mono font-bold text-slate-800">DARE-M25-002</p>
-                    </div>
+                  <div>
+                    <p className="text-lg font-black">100%</p>
+                    <p className="text-xs font-bold uppercase">Authenticity</p>
+                  </div>
+                  <div>
+                    <p className="text-lg font-black">A+</p>
+                    <p className="text-xs font-bold uppercase">Grade</p>
                   </div>
                 </div>
               </div>
+
+              {/* IMAGE */}
+              <div className="px-8 pb-10">
+                <img
+                  src="/assets/img/prasedha.jpg"
+                  alt="Prasedha Project"
+                  className="w-full h-56 object-cover rounded-2xl shadow-md border border-slate-200
+                       transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
             </div>
           </div>
+
         </div>
       </section>
 
