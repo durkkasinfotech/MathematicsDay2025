@@ -280,9 +280,9 @@ const ViruthaiPongalPage = () => {
 
                             <div className="grid grid-cols-3 gap-1.5 xs:gap-2 md:gap-4 max-w-xl mx-auto lg:mx-0 relative z-20">
                                 {[
-                                    { label: 'Registration', val: 'Jan 3–18', status: 'Open', borderClass: 'border-b-emerald-500', shadowClass: 'shadow-emerald-500/10', textClass: 'text-emerald-600' },
-                                    { label: 'Submission', val: 'Jan 3–18', status: 'Live', borderClass: 'border-b-blue-500', shadowClass: 'shadow-blue-500/10', textClass: 'text-blue-600' },
-                                    { label: 'Results', val: 'Jan 19', status: 'Upcoming', borderClass: 'border-b-amber-500', shadowClass: 'shadow-amber-500/10', textClass: 'text-amber-600' }
+                                    { label: 'Registration', val: 'Jan 3–18', status: 'Closed', borderClass: 'border-b-red-500', shadowClass: 'shadow-red-500/10', textClass: 'text-red-600' },
+                                    { label: 'Submission', val: 'Jan 3–18', status: 'Closed', borderClass: 'border-b-red-500', shadowClass: 'shadow-red-500/10', textClass: 'text-red-600' },
+                                    { label: 'Results', val: 'Jan 19', status: 'In Progress', borderClass: 'border-b-amber-500', shadowClass: 'shadow-amber-500/10', textClass: 'text-amber-600' }
                                 ].map((item, i) => (
                                     <div key={i} className={`group rounded-xl md:rounded-2xl bg-white border border-slate-100 border-b-4 ${item.borderClass} p-1.5 xs:p-2 md:p-5 shadow-lg ${item.shadowClass} transition-all hover:-translate-y-1 hover:shadow-xl flex flex-col justify-center min-h-[75px] md:min-h-0`}>
                                         <p className={`text-[8px] xs:text-[10px] font-black uppercase tracking-tight md:tracking-wider ${item.textClass} mb-0.5 md:mb-2 flex items-center justify-center lg:justify-start`}>
@@ -296,18 +296,16 @@ const ViruthaiPongalPage = () => {
 
                             {/* Hero Action Buttons - New Addition */}
                             <div className="flex flex-col sm:flex-row gap-4 pt-4 max-w-xl mx-auto lg:mx-0">
-                                <button
-                                    onClick={() => document.getElementById('registration-form').scrollIntoView({ behavior: 'smooth' })}
-                                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3.5 px-6 rounded-xl font-black uppercase tracking-widest text-xs shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+                                <div
+                                    className="flex-1 bg-slate-400 text-white py-3.5 px-6 rounded-xl font-black uppercase tracking-widest text-xs shadow-lg cursor-not-allowed flex items-center justify-center gap-2"
                                 >
-                                    Register Now <i className="fas fa-arrow-right"></i>
-                                </button>
-                                <button
-                                    onClick={() => document.getElementById('submission-section').scrollIntoView({ behavior: 'smooth' })}
-                                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3.5 px-6 rounded-xl font-black uppercase tracking-widest text-xs shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+                                    Registration Closed <i className="fas fa-lock"></i>
+                                </div>
+                                <div
+                                    className="flex-1 bg-slate-400 text-white py-3.5 px-6 rounded-xl font-black uppercase tracking-widest text-xs shadow-lg cursor-not-allowed flex items-center justify-center gap-2"
                                 >
-                                    Upload Project <i className="fas fa-cloud-upload-alt text-white"></i>
-                                </button>
+                                    Submission Closed <i className="fas fa-lock"></i>
+                                </div>
                             </div>
                         </div>
 
@@ -334,142 +332,18 @@ const ViruthaiPongalPage = () => {
                                     </div>
                                 )}
 
-                                <form onSubmit={handleRegisterSubmit} className="space-y-5">
-                                    <div className="space-y-1.5">
-                                        <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Participant Name</label>
-                                        <div className="relative">
-                                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                <i className="far fa-user text-slate-400 text-xs"></i>
-                                            </div>
-                                            <input required name="fullName" value={registrationData.fullName} onChange={handleRegisterChange} type="text" placeholder="Enter your full name" className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-11 pr-4 py-4 text-sm font-bold text-slate-800 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all placeholder:text-slate-300" />
-                                        </div>
+                                <div className="py-12 text-center space-y-6">
+                                    <div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto border border-red-100">
+                                        <i className="fas fa-clock text-4xl text-red-500"></i>
                                     </div>
-
-                                    <div className="space-y-1.5">
-                                        <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Category</label>
-                                        <div className="grid grid-cols-2 gap-3 p-1 bg-slate-100 rounded-2xl">
-                                            {['School', 'College'].map(cat => (
-                                                <button
-                                                    key={cat}
-                                                    type="button"
-                                                    onClick={() => setRegistrationData({ ...registrationData, category: cat })}
-                                                    className={`py-3 rounded-xl text-xs font-black transition-all ${registrationData.category === cat ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-                                                >
-                                                    {cat} Student
-                                                </button>
-                                            ))}
-                                        </div>
+                                    <div className="space-y-2">
+                                        <h4 className="text-2xl font-black text-slate-900 tracking-tight">Registration Closed</h4>
+                                        <p className="text-slate-500 font-medium text-sm">The registration period for Viruthai Pongal 2026 has officially ended on January 18th.</p>
                                     </div>
-
-                                    {registrationData.category === 'School' ? (
-                                        <div className="space-y-1.5 animate-in fade-in slide-in-from-top-2 duration-500">
-                                            <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Class / Standard</label>
-                                            <div className="relative">
-                                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                    <i className="fas fa-graduation-cap text-slate-400 text-xs"></i>
-                                                </div>
-                                                <select required name="standard" value={registrationData.standard} onChange={handleRegisterChange} className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-11 pr-10 py-4 text-sm font-bold text-slate-800 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all appearance-none cursor-pointer">
-                                                    <option value="" className="text-slate-400">Select Standard</option>
-                                                    {[...Array(12)].map((_, i) => {
-                                                        const num = i + 1;
-                                                        const suffix = num === 1 ? 'st' : num === 2 ? 'nd' : num === 3 ? 'rd' : 'th';
-                                                        return (
-                                                            <option key={i} value={`${num}${suffix} Std`}>{num}{suffix} Standard</option>
-                                                        );
-                                                    })}
-                                                </select>
-                                                <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-400 text-xs">
-                                                    <i className="fas fa-chevron-down"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <div className="space-y-4 animate-in fade-in slide-in-from-top-2 duration-500">
-                                            <div className="space-y-1.5">
-                                                <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Degree</label>
-                                                <div className="relative">
-                                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                        <i className="fas fa-user-graduate text-slate-400 text-xs"></i>
-                                                    </div>
-                                                    <select required name="degree" value={registrationData.degree} onChange={handleRegisterChange} className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-11 pr-10 py-4 text-sm font-bold text-slate-800 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all appearance-none cursor-pointer">
-                                                        <option value="" className="text-slate-400">Select Degree</option>
-                                                        {['BSc', 'MSc', 'BTech/BE', 'MTech/ME', 'BCA', 'MCA', 'BCom', 'Others'].map(deg => (
-                                                            <option key={deg} value={deg}>{deg}</option>
-                                                        ))}
-                                                    </select>
-                                                    <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-slate-400 text-xs">
-                                                        <i className="fas fa-chevron-down"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="space-y-1.5">
-                                                <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Department</label>
-                                                <div className="relative">
-                                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                        <i className="fas fa-book-open text-slate-400 text-xs"></i>
-                                                    </div>
-                                                    <input required name="major" value={registrationData.major} onChange={handleRegisterChange} type="text" placeholder="e.g. Computer Science" className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-11 pr-4 py-4 text-sm font-bold text-slate-800 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all placeholder:text-slate-300" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    <div className="space-y-1.5">
-                                        <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">{registrationData.category === 'School' ? 'School Name' : 'College Name'}</label>
-                                        <div className="relative">
-                                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                <i className="fas fa-university text-slate-400 text-xs"></i>
-                                            </div>
-                                            <input required name="instituteName" value={registrationData.instituteName} onChange={handleRegisterChange} type="text" placeholder={`Enter ${registrationData.category} Name`} className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-11 pr-4 py-4 text-sm font-bold text-slate-800 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all placeholder:text-slate-300" />
-                                        </div>
+                                    <div className="pt-4">
+                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Thank you for your overwhelming response!</p>
                                     </div>
-
-                                    <div className="space-y-4">
-                                        <div className="space-y-1.5">
-                                            <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Email Address</label>
-                                            <div className="relative">
-                                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                    <i className="far fa-envelope text-slate-400 text-xs"></i>
-                                                </div>
-                                                <input required name="emailId" value={registrationData.emailId} onChange={handleRegisterChange} type="email" placeholder="example@mail.com" className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-11 pr-4 py-4 text-sm font-bold text-slate-800 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all placeholder:text-slate-300" />
-                                            </div>
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Mobile Number</label>
-                                            <div className="relative">
-                                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                                    <i className="fas fa-phone-alt text-slate-400 text-xs text-blue-600/50"></i>
-                                                </div>
-                                                <input required name="contactNumber" value={registrationData.contactNumber} onChange={handleRegisterChange} type="tel" placeholder="10-digit #" className="w-full bg-slate-50 border border-slate-200 rounded-2xl pl-11 pr-4 py-4 text-sm font-black text-slate-900 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all placeholder:text-slate-300" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start gap-3 px-1 py-1">
-                                        <div className="flex items-center h-5">
-                                            <input
-                                                id="terms"
-                                                name="agreedToTerms"
-                                                type="checkbox"
-                                                required
-                                                checked={registrationData.agreedToTerms}
-                                                onChange={handleRegisterChange}
-                                                className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-600 cursor-pointer"
-                                            />
-                                        </div>
-                                        <label htmlFor="terms" className="text-[11px] font-bold text-slate-500 leading-tight cursor-pointer">
-                                            I agree to the <span onClick={(e) => { e.preventDefault(); document.getElementById('rules-section').scrollIntoView({ behavior: 'smooth' }); }} className="text-blue-600 underline hover:text-blue-800 transition-colors">Rules & Regulations</span> and confirm that I am a native of Virudhunagar District.
-                                        </label>
-                                    </div>
-
-                                    <button disabled={isSubmitting} type="submit" className="group relative w-full overflow-hidden rounded-2xl bg-blue-600 px-8 py-4 text-sm font-black uppercase tracking-[0.2em] text-white shadow-xl shadow-blue-500/20 transition-all hover:bg-slate-900 active:scale-[0.98] disabled:opacity-50">
-                                        <span className="relative z-10 flex items-center justify-center gap-2">
-                                            {isSubmitting ? 'Registering...' : (
-                                                <>Register Now <i className="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i></>
-                                            )}
-                                        </span>
-                                    </button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -733,38 +607,20 @@ const ViruthaiPongalPage = () => {
                                     </div>
                                 )}
 
-                                <form onSubmit={submissionStep === 1 ? handleEmailValidation : handleVideoSubmit} className="space-y-8">
-                                    {submissionStep === 1 ? (
-                                        <div className="space-y-6">
-                                            <div className="space-y-4">
-                                                <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest">Enter Registered Email</label>
-                                                <input required name="emailId" value={submissionData.emailId} onChange={handleSubmissionChange} type="email" className="w-full rounded-xl border-slate-100 bg-slate-50/50 px-6 py-4 text-sm font-bold" placeholder="yourname@email.com" />
-                                            </div>
-                                            <button disabled={subIsSubmitting} type="submit" className="w-full bg-slate-900 hover:bg-blue-600 text-white py-4 rounded-xl text-xs font-bold uppercase tracking-widest shadow-lg transition-all">
-                                                {subIsSubmitting ? 'Checking...' : 'Verify Email'}
-                                            </button>
+                                <div className="py-10 text-center space-y-6">
+                                    <div className="w-20 h-20 bg-amber-50 rounded-full flex items-center justify-center mx-auto border border-amber-100">
+                                        <i className="fas fa-lock text-4xl text-amber-500"></i>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <h4 className="text-2xl font-black text-slate-900 tracking-tight">Submission Closed</h4>
+                                        <p className="text-slate-500 font-medium text-sm">The Window for Project Submissions is now closed. Thank you to everyone who submitted their entries!</p>
+                                    </div>
+                                    <div className="pt-4">
+                                        <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest">
+                                            <i className="fas fa-star animate-pulse"></i> Results Announcement: Jan 19th <i className="fas fa-star animate-pulse"></i>
                                         </div>
-                                    ) : (
-                                        <div className="space-y-6">
-                                            <div className="space-y-4">
-                                                <div className="space-y-2">
-                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Google Drive Link</label>
-                                                    <input required name="driveLink" value={submissionData.driveLink} onChange={handleSubmissionChange} type="url" className="w-full rounded-xl border-slate-100 bg-slate-50/50 px-5 py-3.5 text-sm font-bold focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Paste your Drive link here" />
-                                                </div>
-                                                <div className="space-y-2">
-                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Instagram Post Link</label>
-                                                    <input required name="instagramLink" value={submissionData.instagramLink} onChange={handleSubmissionChange} type="url" className="w-full rounded-xl border-slate-100 bg-slate-50/50 px-5 py-3.5 text-sm font-bold focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Paste your Instagram link here" />
-                                                </div>
-                                            </div>
-                                            <div className="space-y-3">
-                                                <button disabled={subIsSubmitting} type="submit" className="w-full bg-blue-600 hover:bg-slate-900 text-white py-4 rounded-xl text-xs font-bold uppercase tracking-widest shadow-lg transition-all shadow-blue-500/20">
-                                                    {subIsSubmitting ? 'Submitting...' : 'Submit Project'}
-                                                </button>
-                                                <button type="button" onClick={() => setSubmissionStep(1)} className="w-full text-[10px] font-bold text-slate-400 hover:text-blue-600 uppercase tracking-widest py-2">Use Different Email</button>
-                                            </div>
-                                        </div>
-                                    )}
-                                </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
